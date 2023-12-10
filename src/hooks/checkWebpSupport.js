@@ -27,7 +27,6 @@ const useCheckWebpSupport = () => {
     checkWebPSupport((result) => {
       if (!result) {
         dispatch(setIsWebPSupport(result));
-        return;
       }
     });
   }, [dispatch]);
