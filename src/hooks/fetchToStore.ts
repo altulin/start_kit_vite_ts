@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAppDispatch } from "./hook";
 
-const useFetchToStore = (axs, reducer) => {
+const useFetchToStore = (axs: () => any, reducer: (arg0: any) => any) => {
   const dispatch = useAppDispatch();
 
   const fetch = async () => {
