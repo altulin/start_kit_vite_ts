@@ -17,7 +17,7 @@ interface IInput {
   name: string;
   label?: string;
   handleInput?: (e: ChangeEvent<HTMLInputElement>) => void;
-  handlKeyDown?: (e: KeyboardEventHandler<HTMLInputElement>) => void;
+  handleKeyDown?: (e: KeyboardEventHandler<HTMLInputElement>) => void;
   children?: ReactNode;
   defaultChecked?: boolean;
   value?: string | number;
@@ -34,7 +34,7 @@ const Input: FC<IInput> = ({
   name,
   label,
   handleInput,
-  handlKeyDown,
+  handleKeyDown,
   children,
   defaultChecked,
   value,
@@ -80,11 +80,11 @@ const Input: FC<IInput> = ({
           placeholder={placeholder}
           name={name}
           onInput={() => handleInput}
-          value={value ? value : formik.values[`${name}`]}
-          onChange={onChange ? onChange : formik.handleChange}
+          value={value ?? formik.values[`${name}`]}
+          onChange={onChange}
           onBlur={formik.handleBlur}
           defaultChecked={defaultChecked}
-          onKeyDown={() => handlKeyDown}
+          onKeyDown={() => handleKeyDown}
           disabled={disabled}
           readOnly={readOnly}
         />
