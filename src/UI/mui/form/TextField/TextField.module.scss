@@ -1,0 +1,22 @@
+.field {
+  .field__input.field__input--custom.field__input--placeholder {
+    &::placeholder {
+      // color: tomato;
+      opacity: 1 !important;
+    }
+  }
+
+  &__label.field__label--custom {
+    // color: tomato;
+    transform: translate(14px, -9px) scale(0.75);
+  }
+
+  &__helper {
+    // color: green;
+  }
+
+  fieldset legend {
+    // border-color: blue;
+    max-width: 100%;
+  }
+}
