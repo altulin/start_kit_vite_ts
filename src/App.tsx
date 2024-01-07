@@ -4,8 +4,10 @@ import Template from "./templates_pages/Template";
 import HomePage from "./pages/HomePage";
 import RequireAuth from "./hoc/RequireAuth";
 import ModalManager from "./components/modal/ModalManager";
+import { useRenderCount } from "@uidotdev/usehooks";
 
 const App: FC = () => {
+  console.log("useRenderCount app: " + useRenderCount());
   return (
     <>
       <Routes>
@@ -18,7 +20,6 @@ const App: FC = () => {
         </Route>
       </Routes>
       <ModalManager />
-      <div id="modal-root"></div>
     </>
   );
 };

@@ -1,5 +1,6 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useContext } from "react";
 import ReactDOM from "react-dom";
+import { ModalProvider } from "./ModalManager";
 
 interface IModalPortal {
   children: ReactNode;
@@ -7,8 +8,10 @@ interface IModalPortal {
 }
 
 const ModalPortal: FC<IModalPortal> = ({ children, open = false }) => {
-  if (!open) return null;
+  const modalRootEl = useContext(ModalProvider);
 
-  return ReactDOM.createPortal(children, document.body);
+  if (!open || !modalRootEl) return null;
+
+  return ReactDOM.createPortal(children, modalRootEl.current);
 };
 export default ModalPortal;

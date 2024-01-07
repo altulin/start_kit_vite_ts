@@ -2,9 +2,9 @@
 import Modal from "../template/Modal";
 import style from "../template/Modal.module.scss";
 import clsx from "clsx";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useRenderCount } from "@uidotdev/usehooks";
-import { stepTo } from "@/store/appSlice";
+// import { stepTo } from "@/store/appSlice";
 import { FC, memo } from "react";
 
 interface IModalOpen {
@@ -12,7 +12,7 @@ interface IModalOpen {
 }
 
 const ModalAuth1: FC<IModalOpen> = ({ open }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   console.log("useRenderCount auth: " + useRenderCount());
 
   return (
@@ -22,7 +22,7 @@ const ModalAuth1: FC<IModalOpen> = ({ open }) => {
         <button
           className={clsx(style.modal__button, "form__button")}
           onClick={() => {
-            dispatch(stepTo({ type: "auth", step: 2 }));
+            // dispatch(stepTo({ type: "auth", step: 2 }));
           }}
         >
           войти

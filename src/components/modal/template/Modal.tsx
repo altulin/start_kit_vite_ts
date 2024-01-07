@@ -24,7 +24,7 @@ const Modal: FC<IModal> = ({ children, open = false }) => {
 
   return (
     <ModalPortal open={open}>
-      <div tabIndex={0} className={clsx(style.modal)}>
+      <div className={clsx(style.modal)}>
         <div
           ref={ref as RefObject<HTMLDivElement>}
           className={clsx(style.modal__inner)}
