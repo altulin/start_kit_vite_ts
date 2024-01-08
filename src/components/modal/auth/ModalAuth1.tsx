@@ -3,7 +3,7 @@ import Modal from "../template/Modal";
 import style from "../template/Modal.module.scss";
 import clsx from "clsx";
 // import { useDispatch } from "react-redux";
-import { useRenderCount } from "@uidotdev/usehooks";
+// import { useRenderCount } from "@uidotdev/usehooks";
 // import { stepTo } from "@/store/appSlice";
 import { FC, memo } from "react";
 
@@ -13,7 +13,7 @@ interface IModalOpen {
 
 const ModalAuth1: FC<IModalOpen> = ({ open }) => {
   // const dispatch = useDispatch();
-  console.log("useRenderCount auth: " + useRenderCount());
+  // console.log("useRenderCount auth: " + useRenderCount());
 
   return (
     <Modal open={open}>

@@ -1,20 +1,23 @@
 import ModalAuth1 from "./auth/ModalAuth1";
 import useGetCurrentModal from "@/hooks/getCurrentModal";
 import { useAppSelector } from "@/hooks/hook";
-import { RefObject, createContext, useEffect, useRef, useState } from "react";
+import { useRenderCount } from "@uidotdev/usehooks";
+import { createContext, useEffect, useRef, useState } from "react";
 
-export const ModalProvider = createContext<any>(null);
+export const ModalProvider = createContext<HTMLDivElement | null>(null);
 
 const ModalManager = () => {
   const { modalState } = useAppSelector((state) => state.app);
   const modal = useGetCurrentModal(modalState);
 
-  const refModalRoot = useRef<any>(null);
+  const refModalRoot = useRef<HTMLDivElement | null>(null);
 
-  const [modalRootEl, setModalRootEl] = useState<any>(null);
+  const [modalRootEl, setModalRootEl] = useState<HTMLDivElement | null>(null);
+
+  console.log("useRenderCount : ModalManager " + useRenderCount());
 
   useEffect(() => {
-    setModalRootEl(refModalRoot);
+    setModalRootEl(refModalRoot.current);
   }, []);
 
   return (

@@ -12,6 +12,6 @@ const ModalPortal: FC<IModalPortal> = ({ children, open = false }) => {
 
   if (!open || !modalRootEl) return null;
 
-  return ReactDOM.createPortal(children, modalRootEl.current);
+  return ReactDOM.createPortal(children, modalRootEl);
 };
 export default ModalPortal;
