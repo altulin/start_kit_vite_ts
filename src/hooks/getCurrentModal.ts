@@ -4,20 +4,19 @@ const useGetCurrentModal = (modalState: IModalState | null) => {
   if (!modalState) return;
 
   const key = Object.keys(modalState)[0];
-  return `${key}-${modalState[key]["step"]}`;
 
-  // const modalName = Object.keys(modalState).filter((item) => {
-  //   return modalState[`${item}`].step !== 0;
-  // });
+  let modal;
 
-  // if (modalName.length !== 0) {
-  //   const name = modalName[0];
-  //   const numStep = modalState[`${modalName}`].step;
+  switch (key) {
+    case "error":
+      modal = key;
+      break;
 
-  //   return `${name}-${numStep}`;
-  // } else {
-  //   return null;
-  // }
+    default:
+      modal = `${key}-${modalState[key]["step"]}`;
+  }
+
+  return modal;
 };
 
 export default useGetCurrentModal;

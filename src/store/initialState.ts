@@ -1,13 +1,12 @@
 export interface IModalState {
-  [key: string]: { step: number };
+  [key: string]: { step?: number; text?: string };
 }
 
 interface IInitialState {
-  isMobileOrTablet: boolean;
   modalState: IModalState | null;
 }
 
 export const initialState: IInitialState = {
-  isMobileOrTablet: false,
-  modalState: { auth: { step: 1 } },
+  modalState: null,
+  // modalState: { error: { text: "Ошибка" } },
 };

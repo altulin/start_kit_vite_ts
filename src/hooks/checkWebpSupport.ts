@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setIsWebPSupport } from "../store/appSlice";
+import { useAppDispatch } from "./hook";
 
 const useCheckWebpSupport = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const checkWebPSupport = (callback) => {
     const kTestImages = {

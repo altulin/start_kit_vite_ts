@@ -1,14 +1,29 @@
 import clsx from "clsx";
 import style from "./Promo.module.scss";
 import { FC } from "react";
-import FormExample from "@/UI/mui/form/FormExample";
+import { useAppDispatch } from "@/hooks/hook";
+import { stepTo } from "@/store/appSlice";
 
 const Promo: FC = () => {
+  const dispatch = useAppDispatch();
   return (
     <section className={clsx(style.promo)}>
       <div className={clsx(style.promo__inner, "container")}>
         <h1>321321321</h1>
-        <FormExample />
+        <button
+          onClick={() => {
+            dispatch(stepTo({ auth: { step: 1 } }));
+          }}
+        >
+          auth
+        </button>
+        <button
+          onClick={() => {
+            dispatch(stepTo({ error: { text: "Ошибка" } }));
+          }}
+        >
+          err
+        </button>
       </div>
     </section>
   );

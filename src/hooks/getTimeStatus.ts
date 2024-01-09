@@ -1,6 +1,5 @@
 import { useEffect, useCallback } from "react";
 import { setAction, setTimeAction } from "../store/appSlice";
-import { useDispatch } from "react-redux";
 import {
   intervalToDuration,
   differenceInDays,
@@ -10,6 +9,7 @@ import {
   parse,
 } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
+import { useAppDispatch } from "./hook";
 
 export const parseDate = (date, pattern) => {
   return parse(date, pattern, new Date());
@@ -36,7 +36,7 @@ export const makeInterval = (start, end) => {
 };
 
 export const useGetTimeStatus = ({ startDate, endDate }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch;
 
   useEffect(() => {
     if (!startDate || !endDate) {

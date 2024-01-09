@@ -13,7 +13,7 @@ const App: FC = () => {
           <Route index element={<HomePage />} />
           <Route
             path="/private"
-            element={<RequireAuth>{/* <Private /> */}</RequireAuth>}
+            element={<RequireAuth>{/* <Private /> */ <h1>лк</h1>}</RequireAuth>}
           />
         </Route>
       </Routes>

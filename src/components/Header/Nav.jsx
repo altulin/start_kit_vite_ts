@@ -1,10 +1,11 @@
 import clsx from "clsx";
 import style from "./Header.module.scss";
-import { useSelector } from "react-redux";
 import Menu from "react-burger-menu/lib/menus/slide";
+import useIsSmallDevice from "../../hooks/IsSmallDevice";
 
 const Nav = ({ children, isMenu, setMenu }) => {
-  const { isMobileOrTablet } = useSelector((state) => state.app);
+  const isMobileOrTablet = useIsSmallDevice();
+
   return isMobileOrTablet ? (
     <Menu
       isOpen={isMenu}
