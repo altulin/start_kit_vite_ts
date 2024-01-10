@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useAppSelector } from "@/hooks/hook";
 
 const ModalError: FC = () => {
-  const { modalState } = useAppSelector((state) => state.app);
+  const { modalState } = useAppSelector((state) => state.modal);
 
   return (
     <Modal>

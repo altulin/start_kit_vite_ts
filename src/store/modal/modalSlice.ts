@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IModalState, initialState } from "./initialState";
 
-const appSlice = createSlice({
-  name: "app",
+const modalSlice = createSlice({
+  name: "modal",
   initialState,
 
   reducers: {
@@ -20,5 +20,5 @@ const appSlice = createSlice({
   },
 });
 
-export const { stepTo, clearAllStep } = appSlice.actions;
-export default appSlice.reducer;
+export const { stepTo, clearAllStep } = modalSlice.actions;
+export default modalSlice.reducer;

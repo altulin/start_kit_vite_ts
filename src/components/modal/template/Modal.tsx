@@ -2,7 +2,7 @@ import style from "./Modal.module.scss";
 import clsx from "clsx";
 import ModalPortal from "../ModalPortal";
 import Icon from "@/images/svg/menuClose.svg?react";
-import { clearAllStep } from "@/store/appSlice";
+import { clearAllStep } from "@/store/modal/modalSlice";
 import { useClickAway } from "@uidotdev/usehooks";
 import { FC, ReactNode, RefObject, useCallback, useEffect } from "react";
 import { useAppDispatch } from "@/hooks/hook";

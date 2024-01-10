@@ -3,7 +3,7 @@ import ModalAuth1 from "./auth/ModalAuth1";
 import ModalError from "./error/ModalError";
 import useGetCurrentModal from "@/hooks/getCurrentModal";
 import { FC } from "react";
-import { IModalState } from "@/store/initialState";
+import { IModalState } from "@/store/modal/initialState";
 
 interface IModalElements {
   modalState: IModalState;
@@ -21,7 +21,7 @@ const ModalElements: FC<IModalElements> = ({ modalState }) => {
 };
 
 const ModalManager = () => {
-  const { modalState } = useAppSelector((state) => state.app);
+  const { modalState } = useAppSelector((state) => state.modal);
   return modalState ? <ModalElements modalState={modalState} /> : null;
 };
 

@@ -1,4 +1,4 @@
-import { IModalState } from "@/store/initialState";
+import { IModalState } from "@/store/modal/initialState";
 
 const useGetCurrentModal = (modalState: IModalState | null) => {
   if (!modalState) return;
