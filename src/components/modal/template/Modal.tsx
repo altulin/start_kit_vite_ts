@@ -4,7 +4,7 @@ import ModalPortal from "../ModalPortal";
 import Icon from "@/images/svg/menuClose.svg?react";
 import { clearAllStep } from "@/store/appSlice";
 import { useClickAway } from "@uidotdev/usehooks";
-import { FC, ReactNode, RefObject, useEffect } from "react";
+import { FC, ReactNode, RefObject, useCallback, useEffect } from "react";
 import { useAppDispatch } from "@/hooks/hook";
 
 interface IModal {
@@ -14,13 +14,26 @@ interface IModal {
 const Modal: FC<IModal> = ({ children }) => {
   const dispatch = useAppDispatch();
 
+  const clearModal = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (e: any) => {
+      if (e.key === "Escape") {
+        dispatch(clearAllStep());
+      }
+    },
+
+    [dispatch],
+  );
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    document.body.addEventListener("keydown", clearModal);
 
     return () => {
       document.body.style.overflow = "visible";
+      document.body.removeEventListener("keydown", clearModal);
     };
-  }, []);
+  }, [clearModal]);
 
   const ref = useClickAway(() => {
     dispatch(clearAllStep());
