@@ -14,8 +14,8 @@ const ModalElements: FC<IModalElements> = ({ modalState }) => {
 
   return (
     <>
-      {modal === "auth-1" && <ModalAuth1 open={true} />};
-      {modal === "error" && <ModalError open={true} />}
+      {modal === "auth-1" && <ModalAuth1 />};
+      {modal === "error" && <ModalError />}
     </>
   );
 };

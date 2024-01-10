@@ -3,13 +3,12 @@ import ReactDOM from "react-dom";
 
 interface IModalPortal {
   children: ReactNode;
-  open: boolean;
 }
 
-const ModalPortal: FC<IModalPortal> = ({ children, open = false }) => {
+const ModalPortal: FC<IModalPortal> = ({ children }) => {
   const modalRoot = document.getElementById("modal-root");
 
-  if (!open || !modalRoot) return null;
+  if (!modalRoot) return null;
 
   return ReactDOM.createPortal(children, modalRoot);
 };

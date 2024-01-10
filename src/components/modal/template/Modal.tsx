@@ -4,26 +4,30 @@ import ModalPortal from "../ModalPortal";
 import Icon from "@/images/svg/menuClose.svg?react";
 import { clearAllStep } from "@/store/appSlice";
 import { useClickAway } from "@uidotdev/usehooks";
-import useLockBodyScroll from "@/hooks/lockBodyScroll";
-import { FC, ReactNode, RefObject } from "react";
+import { FC, ReactNode, RefObject, useEffect } from "react";
 import { useAppDispatch } from "@/hooks/hook";
 
 interface IModal {
   children: ReactNode;
-  open: boolean;
 }
 
-const Modal: FC<IModal> = ({ children, open = false }) => {
+const Modal: FC<IModal> = ({ children }) => {
   const dispatch = useAppDispatch();
 
-  useLockBodyScroll(open);
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, []);
 
   const ref = useClickAway(() => {
     dispatch(clearAllStep());
   });
 
   return (
-    <ModalPortal open={open}>
+    <ModalPortal>
       <div className={clsx(style.modal)}>
         <div
           ref={ref as RefObject<HTMLDivElement>}
