@@ -1,12 +1,13 @@
-const getInputNumbersValue = (input) => {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const getInputNumbersValue = (input: any) => {
   return input.value.replace(/\D/g, "");
 };
 
-export const onPhoneInput = (e) => {
+export const onPhoneInput = (e: any) => {
   const input = e.target;
   let inputNumbersValue = getInputNumbersValue(input);
   let formatedInputValue;
-  let selectionStart = input.selectionStart;
+  const selectionStart = input.selectionStart;
 
   if (!inputNumbersValue) {
     return (input.value = "");
@@ -21,7 +22,7 @@ export const onPhoneInput = (e) => {
   if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
     if (inputNumbersValue[0] === "9")
       inputNumbersValue = `7${inputNumbersValue}`;
-    let firstSimbols = inputNumbersValue[0] === "8" ? "+7" : "+7";
+    const firstSimbols = inputNumbersValue[0] === "8" ? "+7" : "+7";
     formatedInputValue = firstSimbols + " ";
 
     if (inputNumbersValue.length > 1) {
@@ -48,7 +49,7 @@ export const onPhoneInput = (e) => {
   input.value = formatedInputValue;
 };
 
-export const onPhoneKeyDown = (e) => {
+export const onPhoneKeyDown = (e: any) => {
   const input = e.target;
   if (e.keyCode === 8 && getInputNumbersValue(input).length === 1) {
     input.value = "";

@@ -49,21 +49,21 @@ const Input: FC<IInput> = ({
         style.block,
         style[`block--${type}`],
         style[`${type}`],
-        className
+        className,
       )}
     >
       <label
         className={clsx(
           style.label,
           style[`label--${type}`],
-          style[`${type}__label`]
+          style[`${type}__label`],
         )}
       >
         <span
           className={clsx(
             style.name,
             style[`name--${type}`],
-            style[`${type}__name`]
+            style[`${type}__name`],
           )}
         >
           {label}
@@ -75,7 +75,7 @@ const Input: FC<IInput> = ({
             style[`input--${type}`],
             style[`${type}__input`],
             formik.errors[`${name}`] && style["input--error"],
-            formik.errors[`${name}`] && style[`${type}__input--error`]
+            formik.errors[`${name}`] && style[`${type}__input--error`],
           )}
           placeholder={placeholder}
           name={name}

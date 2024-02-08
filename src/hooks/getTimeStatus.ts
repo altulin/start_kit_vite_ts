@@ -1,5 +1,4 @@
-import { useEffect, useCallback } from "react";
-import { setAction, setTimeAction } from "../store/modal/modalSlice";
+import { useEffect } from "react";
 import {
   intervalToDuration,
   differenceInDays,

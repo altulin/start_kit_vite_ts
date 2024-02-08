@@ -9,6 +9,7 @@ const TextFieldMail: FC<ITextField> = ({ formik }) => {
       label="mail"
       placeholder="example@mail.ru"
       name="mail"
+      type="email"
     />
   );
 };

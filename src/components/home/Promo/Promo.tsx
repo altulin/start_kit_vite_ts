@@ -3,6 +3,7 @@ import style from "./Promo.module.scss";
 import { FC } from "react";
 import { useAppDispatch } from "@/hooks/hook";
 import { stepTo } from "@/store/modal/modalSlice";
+import FormExample from "@/UI/mui/form/FormExample";
 // import { useGetOneUserQuery } from "@/store/user/userApi";
 
 const Promo: FC = () => {
@@ -12,6 +13,7 @@ const Promo: FC = () => {
     <section className={clsx(style.promo)}>
       <div className={clsx(style.promo__inner, "container")}>
         <h1>321321321</h1>
+        <FormExample />
         <button
           onClick={() => {
             dispatch(stepTo({ auth: { step: 1 } }));
