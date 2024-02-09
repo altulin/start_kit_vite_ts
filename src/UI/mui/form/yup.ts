@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import * as yup from "yup";
 import {
   nameMax,
@@ -23,7 +24,11 @@ export const validationSchema = yup.object().shape({
     .min(8, passwordMin)
     .max(14, passwordMax),
 
-  phone: yup.string().required(required).min(18, valid),
+  // phone: yup.string().required(required).min(17, valid),
+  phone: yup
+    .string()
+    .required(required)
+    .matches(/^(\+7|8) \(\d{3}\) \d{3}\-\d{2}\-\d{2}$/gm, valid),
 
   mail: yup
     .string()

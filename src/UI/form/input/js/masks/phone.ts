@@ -1,57 +1,56 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-const getInputNumbersValue = (input: any) => {
-  return input.value.replace(/\D/g, "");
+const prefixNumber = (str: string) => {
+  // let result;
+
+  // switch (str) {
+  //   case "7":
+  //     result = "7 (";
+  //     break;
+  //   case "8":
+  //     result = "8 (";
+  //     break;
+  //   case "9":
+  //     result = "7 (9";
+  //     break;
+
+  //   default:
+  //     result = "7 (";
+  // }
+  // return result;
+
+  return str === "9" ? "7 (9" : "7 (";
 };
 
-export const onPhoneInput = (e: any) => {
+export const onPhoneInput = (e: React.ChangeEvent<HTMLInputElement>) => {
   const input = e.target;
-  let inputNumbersValue = getInputNumbersValue(input);
-  let formatedInputValue;
-  const selectionStart = input.selectionStart;
+  const value = input.value.replace(/\D+/g, "");
+  const numberLength = 11;
+  let result;
 
-  if (!inputNumbersValue) {
-    return (input.value = "");
-  }
-
-  if (input.value.length !== selectionStart) {
-    if (e.nativeEvent.data && /\D/g.test(e.nativeEvent.data))
-      input.value = inputNumbersValue;
-    return;
-  }
-
-  if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
-    if (inputNumbersValue[0] === "9")
-      inputNumbersValue = `7${inputNumbersValue}`;
-    const firstSimbols = inputNumbersValue[0] === "8" ? "+7" : "+7";
-    formatedInputValue = firstSimbols + " ";
-
-    if (inputNumbersValue.length > 1) {
-      formatedInputValue += "(" + inputNumbersValue.substring(1, 4);
-    }
-
-    if (inputNumbersValue.length >= 5) {
-      formatedInputValue += ") " + inputNumbersValue.substring(4, 7);
-    }
-
-    if (inputNumbersValue.length >= 8) {
-      formatedInputValue += "-" + inputNumbersValue.substring(7, 9);
-    }
-
-    if (inputNumbersValue.length >= 10) {
-      formatedInputValue += "-" + inputNumbersValue.substring(9, 11);
-    }
+  if (input.value.includes("+8") || input.value[0] === "8") {
+    result = "";
   } else {
-    // not ru
-    // formatedInputValue = `+${inputNumbersValue.substring(0, 16)}`;
-    formatedInputValue = "";
+    result = "+";
   }
 
-  input.value = formatedInputValue;
-};
-
-export const onPhoneKeyDown = (e: any) => {
-  const input = e.target;
-  if (e.keyCode === 8 && getInputNumbersValue(input).length === 1) {
-    input.value = "";
+  for (let i = 0; i < value.length && i < numberLength; i++) {
+    switch (i) {
+      case 0:
+        result += prefixNumber(value[i]);
+        continue;
+      case 4:
+        result += ") ";
+        break;
+      case 7:
+        result += "-";
+        break;
+      case 9:
+        result += "-";
+        break;
+      default:
+        break;
+    }
+    result += value[i];
   }
+
+  input.value = result;
 };
