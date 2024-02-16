@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const useStickyHead = (headRef) => {
+const useStickyHead = (headRef: React.RefObject<HTMLDivElement>) => {
   const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
   // handle scroll event
-  const handleScroll = (elTopOffset, elHeight) => {
-    if (window.pageYOffset > elTopOffset + elHeight) {
+  const handleScroll = (elTopOffset: number, elHeight: number) => {
+    if (window.scrollY > elTopOffset + elHeight) {
       setSticky({ isSticky: true, offset: elHeight });
     } else {
       setSticky({ isSticky: false, offset: 0 });
@@ -13,8 +13,10 @@ const useStickyHead = (headRef) => {
 
   // add/remove scroll event listener
   useEffect(() => {
-    var header = headRef.current.getBoundingClientRect();
+    const header = headRef.current?.getBoundingClientRect();
+
     const handleScrollEvent = () => {
+      if (!header) return;
       handleScroll(header.top, header.height);
     };
 

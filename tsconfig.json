@@ -23,7 +23,7 @@
     /*alliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*", "custom-elements.d.ts"]
     }
   },
   "include": ["src"],
