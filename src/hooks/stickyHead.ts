@@ -1,33 +1,29 @@
 import { useEffect, useState } from "react";
 
-const useStickyHead = (headRef: React.RefObject<HTMLDivElement>) => {
-  const [sticky, setSticky] = useState({ isSticky: false, offset: 0 });
-  // handle scroll event
-  const handleScroll = (elTopOffset: number, elHeight: number) => {
-    if (window.scrollY > elTopOffset + elHeight) {
-      setSticky({ isSticky: true, offset: elHeight });
-    } else {
-      setSticky({ isSticky: false, offset: 0 });
-    }
-  };
+const useStickyHead = () => {
+  const [scrollDirection, setScrollDirection] = useState<null | string>(null);
 
-  // add/remove scroll event listener
   useEffect(() => {
-    const header = headRef.current?.getBoundingClientRect();
+    let lastScrollY = window.scrollY;
 
-    const handleScrollEvent = () => {
-      if (!header) return;
-      handleScroll(header.top, header.height);
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      if (
+        direction !== scrollDirection &&
+        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
+      ) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
     };
-
-    window.addEventListener("scroll", handleScrollEvent);
-
+    window.addEventListener("scroll", updateScrollDirection); // add event listener
     return () => {
-      window.removeEventListener("scroll", handleScrollEvent);
+      window.removeEventListener("scroll", updateScrollDirection); // clean up
     };
-  }, [headRef]);
+  }, [scrollDirection]);
 
-  return sticky;
+  return scrollDirection;
 };
 
 export default useStickyHead;
