@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
 import style from "./Promo.module.scss";
 import { FC } from "react";
@@ -7,6 +8,7 @@ import { onNameInput } from "@/service/form/masks/name";
 import { validationSchema } from "@/service/form/validation";
 import { onPhoneInput } from "@/service/form/masks/phone";
 import PasswordField from "@/components/form/Password";
+import SelectField from "@/components/form/Select";
 
 const Promo: FC = () => {
   return (
@@ -23,6 +25,7 @@ const Promo: FC = () => {
             password: "",
             confirm_password: "",
             rule: true,
+            select: "",
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -33,7 +36,7 @@ const Promo: FC = () => {
             }, 1000);
           }}
         >
-          {({ isSubmitting }) => (
+          {(formik) => (
             <Form>
               <TextInput
                 name="name"
@@ -69,8 +72,10 @@ const Promo: FC = () => {
                 </div>
               </TextInput>
 
+              <TextInput name="select" component={SelectField} label="select" />
+
               <button type="submit">Submit</button>
-              {isSubmitting && <p>Submitting...</p>}
+              {formik.isSubmitting && <p>Submitting...</p>}
             </Form>
           )}
         </Formik>

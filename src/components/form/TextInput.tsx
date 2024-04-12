@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Field, useField } from "formik";
 import { ChangeEvent, FC, useId } from "react";
-import Container from "./Container";
+import Container from "./blocks/Container";
 import style from "./Form.module.scss";
 import clsx from "clsx";
 
@@ -14,22 +15,21 @@ interface IMyTextInput {
   onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
   as?: string;
   children?: JSX.Element;
+  component?: any;
+  value?: string;
+  onChange?: any;
+  onBlur?: any;
+  error?: string;
+  touched?: boolean;
 }
 
-const TextInput: FC<IMyTextInput> = ({ label, children, ...props }) => {
+const TextInput: FC<IMyTextInput> = ({ children, ...props }) => {
   const [field, meta] = useField(props);
   const id = useId();
 
   return (
-    <Container {...props}>
-      <label
-        className={clsx(style.label, style[`label--${props.modifier}`] || "")}
-        htmlFor={props.id || id}
-      >
-        {label ? (
-          <span className={clsx(style.label__text)}>{label}</span>
-        ) : null}
-
+    <Container {...props} meta={meta} id={props.id || id}>
+      <>
         <Field
           {...field}
           {...props}
@@ -37,15 +37,7 @@ const TextInput: FC<IMyTextInput> = ({ label, children, ...props }) => {
           id={props.id || id}
         />
         {children}
-      </label>
-
-      {meta.touched && meta.error ? (
-        <div
-          className={clsx(style.error, style[`error--${props.modifier}`] || "")}
-        >
-          {meta.error}
-        </div>
-      ) : null}
+      </>
     </Container>
   );
 };

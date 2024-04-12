@@ -1,17 +1,15 @@
-import { store } from "@/store";
-// import { setErrorModal } from "@/store/appSlice";
-// import { setUser } from "@/store/appSlice";
+// import store from "@/store";
+// import { setErrorModal } from "@/store/modal/modalSlice";
 
-export const getErrText = (error) => {
+export const getErrText = (error: number) => {
   let errorText = "";
-  switch (error.response.status) {
+  switch (error) {
     case 400:
       errorText = "Данные отправлены неверно";
       break;
 
     case 401:
-      localStorage.clear();
-      // store.dispatch(setUser(null));
+      // localStorage.clear();
       return;
 
     case 430:
@@ -70,6 +68,8 @@ export const getErrText = (error) => {
     default:
       errorText = "Ошибка соединения с сервером";
   }
+
+  return errorText;
 
   // store.dispatch(setErrorModal(errorText));
 };

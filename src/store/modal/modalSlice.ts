@@ -14,11 +14,15 @@ const modalSlice = createSlice({
       state.modalState = null;
     },
 
+    setErrorModal(state, action) {
+      state.modalState = { error: { text: action.payload } };
+    },
+
     // setPosts(state, action) {
     // state.posts = action.payload;
     // },
   },
 });
 
-export const { stepTo, clearAllStep } = modalSlice.actions;
+export const { stepTo, clearAllStep, setErrorModal } = modalSlice.actions;
 export default modalSlice.reducer;

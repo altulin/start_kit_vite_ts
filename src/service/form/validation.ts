@@ -50,6 +50,8 @@ export const validationSchema = yup.object().shape({
 
   rule: yup.boolean().oneOf([true], requiredCeck),
 
+  select: yup.string().required(required),
+
   // file: yup.mixed().required(file),
 
   // rule: yup.boolean().oneOf([true], requiredCeck),

@@ -16,8 +16,8 @@ const ButtonEye: FC<IButtonEye> = ({ isTypeText, setType }) => {
       onClick={() => setType(!isTypeText)}
       className={clsx(style.button)}
     >
-      {!isTypeText && <IconEye stroke="red" />}
-      {isTypeText && <IconEyeOff stroke="red" />}
+      {isTypeText && <IconEye stroke="red" />}
+      {!isTypeText && <IconEyeOff stroke="red" />}
     </button>
   );
 };
