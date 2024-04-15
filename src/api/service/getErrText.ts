@@ -1,6 +1,3 @@
-// import store from "@/store";
-// import { setErrorModal } from "@/store/modal/modalSlice";
-
 export const getErrText = (error: number) => {
   let errorText = "";
   switch (error) {
@@ -70,6 +67,4 @@ export const getErrText = (error: number) => {
   }
 
   return errorText;
-
-  // store.dispatch(setErrorModal(errorText));
 };

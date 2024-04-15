@@ -5,7 +5,11 @@ import Select from "react-select";
 
 interface ISelectField {
   placeholder?: string;
-  field: any;
+  field: {
+    name: string;
+    value: string | number;
+    onBlur: () => void;
+  };
   form: any;
 }
 
