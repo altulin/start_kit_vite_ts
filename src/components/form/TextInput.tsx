@@ -21,6 +21,7 @@ interface IMyTextInput {
   onBlur?: any;
   error?: string;
   touched?: boolean;
+  multiple?: boolean;
 }
 
 const TextInput: FC<IMyTextInput> = ({ children, ...props }) => {

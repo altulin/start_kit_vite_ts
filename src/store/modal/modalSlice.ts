@@ -14,13 +14,9 @@ const modalSlice = createSlice({
       state.modalState = null;
     },
 
-    setErrorModal(state, action) {
+    setErrorModal(state, action: PayloadAction<string>) {
       state.modalState = { error: { text: action.payload } };
     },
-
-    // setPosts(state, action) {
-    // state.posts = action.payload;
-    // },
   },
 });
 

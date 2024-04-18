@@ -2,6 +2,7 @@
 import * as yup from "yup";
 import {
   confrmPasswordMatch,
+  file,
   nameMax,
   nameMin,
   passwordMax,
@@ -52,7 +53,15 @@ export const validationSchema = yup.object().shape({
 
   select: yup.string().required(required),
 
-  // file: yup.mixed().required(file),
+  file: yup.mixed().required(file),
+  // .test("fileFormat", "Only PDF files are allowed", (value) => {
+  //   if (value) {
+  //     const supportedFormats = ["pdf"];
+  //     console.log(value);
+  //     return supportedFormats.includes(value.split(".").pop());
+  //   }
+  //   return true;
+  // }),
 
   // rule: yup.boolean().oneOf([true], requiredCeck),
 });

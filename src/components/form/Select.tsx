@@ -11,9 +11,10 @@ interface ISelectField {
     onBlur: () => void;
   };
   form: any;
+  id?: string;
 }
 
-const SelectField: FC<ISelectField> = ({ field, form, placeholder }) => {
+const SelectField: FC<ISelectField> = ({ field, form, placeholder, id }) => {
   const resp = useGetUsersQuery("users", {});
   const [options, setOptions] = useState([]);
 
@@ -44,6 +45,7 @@ const SelectField: FC<ISelectField> = ({ field, form, placeholder }) => {
       }}
       onBlur={field.onBlur}
       placeholder={placeholder}
+      id={id}
     />
   );
 };

@@ -7,6 +7,10 @@ import Logo from "@/UI/logo/Logo";
 
 const Header = () => {
   const [isMenu, setMenu] = useState(true);
+
+  // useEffect(() => {
+  //   yearRref.current!.innerHTML = new Date().getFullYear().toString();
+  // }, []);
   return (
     <header className={clsx(style.header)}>
       <div className={clsx(style.header__inner)}>

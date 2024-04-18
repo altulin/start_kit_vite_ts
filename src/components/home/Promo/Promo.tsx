@@ -9,6 +9,7 @@ import { validationSchema } from "@/service/form/validation";
 import { onPhoneInput } from "@/service/form/masks/phone";
 import PasswordField from "@/components/form/Password";
 import SelectField from "@/components/form/Select";
+import FileUpload from "@/components/form/FileUpload";
 
 const Promo: FC = () => {
   return (
@@ -26,6 +27,7 @@ const Promo: FC = () => {
             confirm_password: "",
             rule: true,
             select: "",
+            file: "",
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -72,7 +74,22 @@ const Promo: FC = () => {
                 </div>
               </TextInput>
 
-              <TextInput name="select" component={SelectField} label="select" />
+              <TextInput
+                name="select"
+                component={SelectField}
+                label="select"
+                id="select-field"
+                placeholder="выбери"
+              />
+
+              <TextInput
+                name="file"
+                type="file"
+                component={FileUpload}
+                label="file"
+                id="file-field"
+                multiple={true}
+              />
 
               <button type="submit">Submit</button>
               {formik.isSubmitting && <p>Submitting...</p>}
