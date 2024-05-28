@@ -8,6 +8,7 @@
 
 html {
   box-sizing: border-box;
+
   // font-size: 16px;
   font-size: 0.83vw;
 
@@ -29,6 +30,7 @@ html {
 }
 
 body {
+  scroll-behavior: smooth;
   @include font("ProximaNova");
   color: $text-dark;
   background-color: $bg;
