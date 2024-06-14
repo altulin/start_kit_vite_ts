@@ -11,13 +11,6 @@ import {
   requiredCeck,
   valid,
 } from "./errText";
-// import {
-//   file,
-//   nameMax,
-//   nameMin,
-//   required,
-//   valid,
-// } from "../../form/input/js/errText";
 
 export const validationSchema = yup.object().shape({
   name: yup

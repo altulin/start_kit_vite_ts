@@ -53,6 +53,10 @@ body {
   }
 }
 
+img {
+  user-select: none;
+}
+
 #root {
   display: flex;
   flex-direction: column;
