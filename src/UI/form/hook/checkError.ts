@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const useCheckError = (meta: any) => {
-  const isError = meta.touched && meta.error;
-  const error_text = meta.error;
+const useCheckError = (fields: any) => {
+  const isError = fields.touched && fields.error;
+  const error_text = fields.error;
 
   return { isError, error_text };
 };

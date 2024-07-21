@@ -10,8 +10,9 @@ interface IContainer extends InputHTMLAttributes<HTMLInputElement> {
 
 const Container: FC<IContainer> = ({ ...props }) => {
   const { id, children, label_text, name = "" } = props;
-  const [meta] = useField(name);
-  const { isError, error_text } = useCheckError(meta);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [meta, fields] = useField(name);
+  const { isError, error_text } = useCheckError(fields);
 
   return (
     <div className={clsx(style.container)}>
