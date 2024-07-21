@@ -25,14 +25,13 @@ interface IMyTextInput {
 }
 
 const TextInput: FC<IMyTextInput> = ({ children, ...props }) => {
-  const [field, meta] = useField(props);
+  const [meta] = useField(props);
   const id = useId();
 
   return (
     <Container {...props} meta={meta} id={props.id || id}>
       <>
         <Field
-          {...field}
           {...props}
           className={clsx(style.input, style[`input--${props.modifier}`] || "")}
           id={props.id || id}
