@@ -4,8 +4,9 @@ import ButtonEye from "./ButtonEye";
 
 const PasswordField: FC<ITextInput> = ({ ...props }) => {
   const [isTypeText, setType] = useState(false);
+
   return (
-    <TextInput {...props}>
+    <TextInput {...props} type={isTypeText ? "text" : "password"}>
       <ButtonEye isTypeText={isTypeText} setType={setType} />
     </TextInput>
   );

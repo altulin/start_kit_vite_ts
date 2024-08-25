@@ -1,9 +1,9 @@
 import { Form, Formik } from "formik";
 import { FC, useEffect } from "react";
 import { fields } from "./assets";
-import TextInput from "@/UI/form/components/TextInput";
 import { makeSchema } from "../validation/schema";
 import { makeInitialValues } from "../vallues";
+import FieldComponent from "../hoc/Field";
 
 const FormTemplate: FC = () => {
   useEffect(() => {
@@ -20,7 +20,7 @@ const FormTemplate: FC = () => {
         return (
           <Form>
             {fields.map((item, i) => (
-              <TextInput key={i} {...item} />
+              <FieldComponent key={i} {...item} />
             ))}
           </Form>
         );
