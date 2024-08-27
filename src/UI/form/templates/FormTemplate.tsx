@@ -1,25 +1,22 @@
 import { Form, Formik } from "formik";
-import { FC, useEffect } from "react";
-import { fields } from "./assets";
-import { makeSchema } from "../validation/schema";
-import { makeInitialValues } from "../vallues";
-import FieldComponent from "../hoc/Field";
+import { FC } from "react";
+import { formData } from "./form_data";
+import { makeInitialValues } from "../initialValues";
+import FieldComponent from "../hoc/FieldComponent";
+import { validateSchema } from "../validation/yupSchemaCreator";
 
 const FormTemplate: FC = () => {
-  useEffect(() => {
-    makeSchema(fields);
-  }, []);
   return (
     <Formik
-      initialValues={makeInitialValues(fields)}
-      validationSchema={makeSchema(fields)}
+      initialValues={{ ...makeInitialValues(formData), rule: true }}
+      validationSchema={validateSchema(formData)}
       onSubmit={() => {}}
     >
       {() => {
-        // console.log(formik.errors);
+        // console.log(formik.values);
         return (
           <Form>
-            {fields.map((item, i) => (
+            {formData.map((item, i) => (
               <FieldComponent key={i} {...item} />
             ))}
           </Form>

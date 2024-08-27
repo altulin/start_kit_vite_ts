@@ -4,8 +4,10 @@ export const makeInitialValues = (fields: IField[]) => {
   const object: Record<string, string> = {};
 
   fields.forEach((item) => {
-    if (item.name) {
-      object[item.name] = item.init_value ? item.init_value : "";
+    if (item.name !== undefined && typeof item.value === "string") {
+      object[item.name] = item.value;
+    } else if (item.name !== undefined) {
+      object[item.name] = "";
     }
   });
 
