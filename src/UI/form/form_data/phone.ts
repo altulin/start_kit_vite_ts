@@ -1,10 +1,13 @@
 /* eslint-disable no-useless-escape */
 import { onPhoneInput } from "../masks/phone";
+import { ITextInput } from "../types";
 import { required, valid } from "../validation/errText";
 
-export const fieldPhone = (label: string, modifier?: string) => {
+export const fieldPhone = (args: ITextInput) => {
+  const { label_text, modifier } = args;
+
   return {
-    label_text: label,
+    label_text,
     type: "tel",
     name: "phone",
     onInput: onPhoneInput,

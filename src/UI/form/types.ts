@@ -19,4 +19,4 @@ export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
   options?: OptionsType;
 }
 
-type OptionsType = { [key: string]: string | number }[];
+export type OptionsType = { [key: string]: string | number }[];

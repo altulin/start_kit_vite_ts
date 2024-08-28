@@ -1,9 +1,11 @@
 import { onNameInput } from "../masks/name";
+import { ITextInput } from "../types";
 import { nameMax, nameMin, required } from "../validation/errText";
 
-export const fieldName = (label: string, modifier?: string) => {
+export const fieldName = (args: ITextInput) => {
+  const { label_text, modifier } = args;
   return {
-    label_text: label,
+    label_text,
     type: "text",
     name: "name",
     onInput: onNameInput,

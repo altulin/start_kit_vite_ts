@@ -1,17 +1,19 @@
 /* eslint-disable no-useless-escape */
 
 import MySelect from "../components/Select";
+import { ITextInput } from "../types";
 import { required } from "../validation/errText";
 
-export const fieldSelect = (label: string, modifier?: string) => {
+export const fieldSelect = (args: ITextInput) => {
+  const { label_text, modifier, options } = args;
   return {
-    label_text: label,
+    label_text,
     type: "select",
     name: "select",
     validation_type: "string",
     modifier,
     component: MySelect,
-    options: [],
+    options,
     validations: [
       {
         type: "required",

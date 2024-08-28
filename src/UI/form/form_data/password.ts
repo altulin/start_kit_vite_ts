@@ -1,3 +1,4 @@
+import { ITextInput } from "../types";
 import {
   confirmPasswordMatch,
   passwordMax,
@@ -6,9 +7,10 @@ import {
 } from "../validation/errText";
 import * as yup from "yup";
 
-export const fieldPassword = (label: string, modifier?: string) => {
+export const fieldPassword = (args: ITextInput) => {
+  const { label_text, modifier } = args;
   return {
-    label_text: label,
+    label_text,
     type: "password",
     name: "password",
     autoComplete: "off",
@@ -31,9 +33,10 @@ export const fieldPassword = (label: string, modifier?: string) => {
   };
 };
 
-export const fieldConfirmPassword = (label: string, modifier?: string) => {
+export const fieldConfirmPassword = (args: ITextInput) => {
+  const { label_text, modifier } = args;
   return {
-    label_text: label,
+    label_text,
     type: "password",
     name: "confirm_password",
     autoComplete: "off",

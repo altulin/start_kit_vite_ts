@@ -1,12 +1,11 @@
+import { ITextInput } from "../types";
 import { requiredCheck } from "../validation/errText";
 
-export const fieldCheckbox = (
-  label: string,
-  name: string,
-  modifier?: string,
-) => {
+export const fieldCheckbox = (args: ITextInput) => {
+  const { label_text, name, modifier } = args;
+
   return {
-    label_text: label,
+    label_text,
     type: "checkbox",
     name,
     modifier,

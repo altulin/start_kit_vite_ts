@@ -1,8 +1,10 @@
+import { ITextInput } from "../types";
 import { required, valid } from "../validation/errText";
 
-export const fieldEmail = (label: string, modifier?: string) => {
+export const fieldEmail = (args: ITextInput) => {
+  const { label_text, modifier } = args;
   return {
-    label_text: label,
+    label_text,
     type: "email",
     name: "email",
     validation_type: "string",

@@ -6,12 +6,18 @@ import { fieldPhone } from "../form_data/phone";
 import { fieldSelect } from "../form_data/select";
 import { ITextInput } from "../types";
 
+const options = [
+  { label: "Тест_1", value: "test_1" },
+  { label: "Тест_2", value: "test_2" },
+  { label: "Тест_3", value: "test_3" },
+];
+
 export const formData: ITextInput[] = [
-  fieldName("name"),
-  fieldEmail("email"),
-  fieldPassword("password"),
-  fieldConfirmPassword("повторите пароль"),
-  fieldCheckbox("правило", "rule"),
-  fieldPhone("телефон"),
-  fieldSelect("город", "test"),
+  fieldName({ label_text: "name" }),
+  fieldEmail({ label_text: "email" }),
+  fieldPassword({ label_text: "password" }),
+  fieldConfirmPassword({ label_text: "повторите пароль" }),
+  fieldCheckbox({ label_text: "правило", name: "rule" }),
+  fieldPhone({ label_text: "телефон" }),
+  fieldSelect({ label_text: "город", options, modifier: "test" }),
 ];
