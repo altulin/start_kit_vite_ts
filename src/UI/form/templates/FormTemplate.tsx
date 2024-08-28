@@ -12,8 +12,8 @@ const FormTemplate: FC = () => {
       validationSchema={validateSchema(formData)}
       onSubmit={() => {}}
     >
-      {(formik) => {
-        console.log(formik.errors);
+      {() => {
+        // console.log(formik.errors);
         return (
           <Form>
             {formData.map((item, i) => (

@@ -4,23 +4,18 @@ import clsx from "clsx";
 import { FC } from "react";
 import style from "../Form.module.scss";
 import Select from "react-select";
-import { useField } from "formik";
-// import { FieldProps } from "formik";
-// import { OptionsType } from "../types";
+import { FieldProps, useField } from "formik";
+import { ITextInput } from "../types";
 
-// interface IMySelect extends FieldProps {
-// options: OptionsType;
-// }
+interface IMySelect extends FieldProps, Omit<ITextInput, "form"> {}
 
-const MySelect: FC<any> = ({ ...props }) => {
+const MySelect: FC<IMySelect> = ({ ...props }) => {
   const {
     field: { name },
     options,
   } = props;
 
   const [meta, field, helpers] = useField(name);
-
-  console.log(helpers);
 
   return (
     <Select
@@ -38,7 +33,7 @@ const MySelect: FC<any> = ({ ...props }) => {
       name={name}
       onBlur={() => helpers.setTouched(true)}
       onChange={(val: any) => helpers.setValue(val.value)}
-      value={options.find((el: any) => el.value === field.value)}
+      value={options && options.find((el: any) => el.value === field.value)}
     />
   );
 };
