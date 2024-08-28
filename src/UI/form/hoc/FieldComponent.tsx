@@ -1,24 +1,26 @@
 import { FC } from "react";
-import TextInput, { ITextInput } from "../components/TextInput";
+import TextInput from "../components/TextInput";
 import PasswordField from "../components/password/PasswordField";
 import Checkbox from "../components/Checkbox";
+import { ITextInput } from "../types";
 
 const FieldComponent: FC<ITextInput> = ({ ...props }) => {
-  const getComponent = (type: string | undefined) => {
-    switch (type) {
-      case "text":
+  const { type = "text" } = props;
+
+  const getComponent = (type: string) => {
+    const simple = ["text", "email", "tel"];
+
+    switch (true) {
+      case simple.includes(type):
         return <TextInput {...props} />;
 
-      case "email":
-        return <TextInput {...props} />;
-
-      case "password":
+      case type === "password":
         return <PasswordField {...props} />;
 
-      case "checkbox":
+      case type === "checkbox":
         return <Checkbox {...props} />;
     }
   };
-  return getComponent(props.type);
+  return getComponent(type);
 };
 export default FieldComponent;

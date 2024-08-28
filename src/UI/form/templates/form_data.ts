@@ -2,12 +2,14 @@ import { fieldCheckbox } from "../form_data/checkbox";
 import { fieldEmail } from "../form_data/email";
 import { fieldName } from "../form_data/name";
 import { fieldConfirmPassword, fieldPassword } from "../form_data/password";
-import { IField } from "../types";
+import { fieldPhone } from "../form_data/phone";
+import { ITextInput } from "../types";
 
-export const formData: IField[] = [
+export const formData: ITextInput[] = [
   fieldName("name"),
   fieldEmail("email"),
   fieldPassword("password"),
   fieldConfirmPassword("повторите пароль"),
   fieldCheckbox("правило", "rule"),
+  fieldPhone("телефон"),
 ];

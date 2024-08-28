@@ -2,8 +2,9 @@ import { FC } from "react";
 import clsx from "clsx";
 import style from "../Form.module.scss";
 import IconRule from "@/images/svg/rule.svg?react";
-import TextInput, { ITextInput } from "./TextInput";
+import TextInput from "./TextInput";
 import { useField } from "formik";
+import { ITextInput } from "../types";
 
 const Checkbox: FC<ITextInput> = ({ children, ...props }) => {
   const [meta] = useField(props.name || "");

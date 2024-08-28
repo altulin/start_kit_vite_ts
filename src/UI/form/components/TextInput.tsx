@@ -1,15 +1,9 @@
-import { FC, InputHTMLAttributes, useId } from "react";
+import { FC, useId } from "react";
 import Container from "../hoc/Container";
 import { Field } from "formik";
 import clsx from "clsx";
 import style from "../Form.module.scss";
-
-export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
-  label_text: string;
-  children?: React.ReactNode;
-  type?: string;
-  modifier?: string | null;
-}
+import { ITextInput } from "../types";
 
 const TextInput: FC<ITextInput> = ({
   type = "text",
@@ -19,6 +13,9 @@ const TextInput: FC<ITextInput> = ({
   ...props
 }) => {
   const id = useId();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { validation_type, validations, ...input_props } = props;
 
   return (
     <Container label_text={label_text} id={id} {...props}>
@@ -31,7 +28,7 @@ const TextInput: FC<ITextInput> = ({
           )}
           type={type}
           id={id}
-          {...props}
+          {...input_props}
         />
         {children}
       </>
