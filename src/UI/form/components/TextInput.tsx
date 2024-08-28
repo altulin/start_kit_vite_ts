@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, useId } from "react";
 import Container from "../hoc/Container";
 import { Field } from "formik";
@@ -9,12 +10,10 @@ const TextInput: FC<ITextInput> = ({
   type = "text",
   label_text,
   children,
-  modifier = null,
   ...props
 }) => {
   const id = useId();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { validation_type, validations, ...input_props } = props;
 
   return (
@@ -23,7 +22,7 @@ const TextInput: FC<ITextInput> = ({
         <Field
           className={clsx(
             style.input,
-            modifier && style[`input--${modifier}`],
+            input_props.modifier && style[`input--${input_props.modifier}`],
             type === "checkbox" && style["input--checkbox"],
           )}
           type={type}

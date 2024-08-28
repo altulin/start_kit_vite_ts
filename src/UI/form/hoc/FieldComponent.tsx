@@ -8,7 +8,7 @@ const FieldComponent: FC<ITextInput> = ({ ...props }) => {
   const { type = "text" } = props;
 
   const getComponent = (type: string) => {
-    const simple = ["text", "email", "tel"];
+    const simple = ["text", "email", "tel", "select"];
 
     switch (true) {
       case simple.includes(type):
