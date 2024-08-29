@@ -5,10 +5,9 @@ import { FC } from "react";
 import style from "../Form.module.scss";
 import { FieldProps, useField } from "formik";
 import { ITextInput } from "../types";
-import TextInput from "./TextInput";
 interface IMyTextArea extends FieldProps, Omit<ITextInput, "form"> {}
 
-const File: FC<any> = ({ ...props }) => {
+const File: FC<IMyTextArea> = ({ ...props }) => {
   const {
     field: { name },
     modifier,
