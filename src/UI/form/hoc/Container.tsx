@@ -10,7 +10,7 @@ interface IContainer extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Container: FC<IContainer> = ({ ...props }) => {
-  const { id, children, label_text, name = "", modifier = null } = props;
+  const { children, name = "", modifier = null } = props;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [meta, fields] = useField(name);
   const { isError, error_text } = useCheckError(fields);
@@ -22,23 +22,7 @@ const Container: FC<IContainer> = ({ ...props }) => {
         modifier && style["container--${modifier}"],
       )}
     >
-      <label
-        className={clsx(style.label, modifier && style[`label--${modifier}`])}
-        htmlFor={id}
-      >
-        {label_text && (
-          <span
-            className={clsx(
-              style.label__text,
-              modifier && style[`label__text--${modifier}`],
-            )}
-          >
-            {label_text}
-          </span>
-        )}
-
-        {children}
-      </label>
+      {children}
 
       {isError && (
         <div

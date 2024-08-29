@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, useId } from "react";
 import Container from "../hoc/Container";
-import { Field } from "formik";
+import { ITextInput } from "../types";
+import Label from "../hoc/Label";
+import FieldBasic from "../hoc/FieldBasic";
 import clsx from "clsx";
 import style from "../Form.module.scss";
-import { ITextInput } from "../types";
 
 const TextInput: FC<ITextInput> = ({
-  type = "text",
   label_text,
   radio_list,
   children,
@@ -15,22 +14,23 @@ const TextInput: FC<ITextInput> = ({
 }) => {
   const id = useId();
 
-  const { validation_type, validations, ...input_props } = props;
-
   return (
     <Container label_text={label_text} id={id} {...props}>
-      <>
-        <Field
-          className={clsx(
-            style.input,
-            input_props.modifier && style[`input--${input_props.modifier}`],
-          )}
-          type={type}
-          id={id}
-          {...input_props}
-        />
-        {children}
-      </>
+      {!radio_list && (
+        <Label {...props} label_text={label_text} id={id}>
+          <FieldBasic {...props} id={id} />
+          {children}
+        </Label>
+      )}
+
+      {radio_list &&
+        radio_list.map((item, i) => (
+          <Label {...props} key={i} label_text={item.label} id={`${id}_${i}`}>
+            <FieldBasic {...props} value={item.value} id={`${id}_${i}`} />
+            <span className={clsx(style.radio__mark)}></span>
+            {children}
+          </Label>
+        ))}
     </Container>
   );
 };

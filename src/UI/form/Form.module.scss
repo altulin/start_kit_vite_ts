@@ -1,13 +1,8 @@
 @import "@/sass/helpers/variables";
 @import "@/sass/helpers/mixins.scss";
 
-.input {
-  &--hidden {
-    @include vh();
-  }
-}
-
 input[type="file"],
+input[type="radio"],
 input[type="checkbox"] {
   @include vh();
 }

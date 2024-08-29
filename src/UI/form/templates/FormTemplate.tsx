@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import { FC } from "react";
-import { formData } from "./form_data";
+import { formData, radio_list } from "./form_data";
 import { makeInitialValues } from "../initialValues";
 import FieldComponent from "../hoc/FieldComponent";
 import { validateSchema } from "../validation/yupSchemaCreator";
@@ -8,12 +8,16 @@ import { validateSchema } from "../validation/yupSchemaCreator";
 const FormTemplate: FC = () => {
   return (
     <Formik
-      initialValues={{ ...makeInitialValues(formData), rule: true }}
+      initialValues={{
+        ...makeInitialValues(formData),
+        rule: true,
+        radio: radio_list[0].value,
+      }}
       validationSchema={validateSchema(formData)}
       onSubmit={() => {}}
     >
       {() => {
-        // console.log(formik.errors);
+        // console.log(formik.values);
         return (
           <Form>
             {formData.map((item, i) => (

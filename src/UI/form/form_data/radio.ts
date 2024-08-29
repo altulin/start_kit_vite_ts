@@ -1,5 +1,4 @@
 import { ITextInput } from "../types";
-import { requiredCheck } from "../validation/errText";
 
 export const fieldRadio = (args: ITextInput) => {
   const { name = "vote", modifier, radio_list } = args;
@@ -8,13 +7,8 @@ export const fieldRadio = (args: ITextInput) => {
     type: "radio",
     name,
     modifier,
-    validation_type: "boolean",
+    validation_type: "string",
     radio_list,
-    validations: [
-      {
-        type: "oneOf",
-        params: [[true], requiredCheck],
-      },
-    ],
+    validations: [],
   };
 };

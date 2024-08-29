@@ -1,6 +1,6 @@
-import { IField } from "./types";
+import { ITextInput } from "./types";
 
-export const makeInitialValues = (fields: IField[]) => {
+export const makeInitialValues = (fields: ITextInput[]) => {
   const object: Record<string, string> = {};
 
   fields.forEach((item) => {

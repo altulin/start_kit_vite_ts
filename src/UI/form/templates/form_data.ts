@@ -15,7 +15,7 @@ const options = [
   { label: "Тест_3", value: "test_3" },
 ];
 
-const radio_list = [
+export const radio_list = [
   { label: "Тест_1", value: "test_1" },
   { label: "Тест_2", value: "test_2" },
   { label: "Тест_3", value: "test_3" },
