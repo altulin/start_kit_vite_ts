@@ -3,20 +3,13 @@ import TextInput from "../components/TextInput";
 import PasswordField from "../components/password/PasswordField";
 import Checkbox from "../components/Checkbox";
 import { ITextInput } from "../types";
+import RadioGroup from "../components/RadioGroup";
 
 const FieldComponent: FC<ITextInput> = ({ ...props }) => {
   const { type = "text" } = props;
 
   const getComponent = (type: string) => {
-    const simple = [
-      "text",
-      "email",
-      "tel",
-      "select",
-      "textarea",
-      "file",
-      "radio",
-    ];
+    const simple = ["text", "email", "tel", "select", "textarea", "file"];
 
     switch (true) {
       case simple.includes(type):
@@ -27,6 +20,9 @@ const FieldComponent: FC<ITextInput> = ({ ...props }) => {
 
       case type === "checkbox":
         return <Checkbox {...props} />;
+
+      case type === "radio":
+        return <RadioGroup {...props} />;
     }
   };
   return getComponent(type);
