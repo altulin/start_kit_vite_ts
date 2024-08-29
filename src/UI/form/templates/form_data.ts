@@ -1,9 +1,11 @@
 import { fieldCheckbox } from "../form_data/checkbox";
 import { fieldEmail } from "../form_data/email";
+import { fieldFile } from "../form_data/file";
 import { fieldName } from "../form_data/name";
 import { fieldConfirmPassword, fieldPassword } from "../form_data/password";
 import { fieldPhone } from "../form_data/phone";
 import { fieldSelect } from "../form_data/select";
+import { fieldTextArea } from "../form_data/textarea";
 import { ITextInput } from "../types";
 
 const options = [
@@ -20,4 +22,6 @@ export const formData: ITextInput[] = [
   fieldCheckbox({ label_text: "правило", name: "rule" }),
   fieldPhone({ label_text: "телефон" }),
   fieldSelect({ label_text: "город", options, modifier: "test" }),
+  fieldTextArea({ label_text: "текст", modifier: "test" }),
+  fieldFile({ label_text: "файл", modifier: "test" }),
 ];

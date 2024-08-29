@@ -2,7 +2,7 @@
 @import "@/sass/helpers/mixins.scss";
 
 .input {
-  &--checkbox {
+  &--hidden {
     @include vh();
   }
 }
