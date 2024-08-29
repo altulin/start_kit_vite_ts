@@ -11,12 +11,18 @@ export type TParams = (
 )[];
 
 export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
-  label_text: string;
+  label_text?: string;
   modifier?: string | null;
   validations?: { type: string; params: TParams }[];
   validation_type?: string;
   component?: string | React.ComponentType<FieldProps>;
   options?: OptionsType;
+  radio_list?: TRadioItem[];
 }
+
+type TRadioItem = {
+  label: string;
+  value: string;
+};
 
 export type OptionsType = { [key: string]: string | number }[];

@@ -5,7 +5,7 @@ import useCheckError from "../hook/checkError";
 import { useField } from "formik";
 
 interface IContainer extends InputHTMLAttributes<HTMLInputElement> {
-  label_text: string;
+  label_text?: string;
   modifier?: string | null;
 }
 
@@ -26,14 +26,17 @@ const Container: FC<IContainer> = ({ ...props }) => {
         className={clsx(style.label, modifier && style[`label--${modifier}`])}
         htmlFor={id}
       >
-        <span
-          className={clsx(
-            style.label__text,
-            modifier && style[`label__text--${modifier}`],
-          )}
-        >
-          {label_text}
-        </span>
+        {label_text && (
+          <span
+            className={clsx(
+              style.label__text,
+              modifier && style[`label__text--${modifier}`],
+            )}
+          >
+            {label_text}
+          </span>
+        )}
+
         {children}
       </label>
 

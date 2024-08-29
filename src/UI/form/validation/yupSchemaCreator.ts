@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as yup from "yup";
-import { IField } from "../types";
+import { ITextInput } from "../types";
 
 export function createYupSchema(schema: any, config: any) {
   const { name, validation_type, validations = [] } = config;
@@ -19,7 +19,7 @@ export function createYupSchema(schema: any, config: any) {
   return schema;
 }
 
-export const validateSchema = (formData: IField[]) => {
+export const validateSchema = (formData: ITextInput[]) => {
   const yepSchema = formData.reduce(createYupSchema, {});
   return yup.object().shape(yepSchema);
 };

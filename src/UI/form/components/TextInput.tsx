@@ -9,14 +9,13 @@ import { ITextInput } from "../types";
 const TextInput: FC<ITextInput> = ({
   type = "text",
   label_text,
+  radio_list,
   children,
   ...props
 }) => {
   const id = useId();
 
   const { validation_type, validations, ...input_props } = props;
-
-  const hidden = ["checkbox", "file"];
 
   return (
     <Container label_text={label_text} id={id} {...props}>
@@ -25,7 +24,6 @@ const TextInput: FC<ITextInput> = ({
           className={clsx(
             style.input,
             input_props.modifier && style[`input--${input_props.modifier}`],
-            hidden.includes(type) && style["input--hidden"],
           )}
           type={type}
           id={id}

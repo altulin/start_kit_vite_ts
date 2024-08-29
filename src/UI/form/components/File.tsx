@@ -1,30 +1,51 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import style from "../Form.module.scss";
 import { FieldProps, useField } from "formik";
 import { ITextInput } from "../types";
+import { checkObj } from "@/service/checkObj";
 interface IMyTextArea extends FieldProps, Omit<ITextInput, "form"> {}
 
 const File: FC<IMyTextArea> = ({ ...props }) => {
   const {
     field: { name },
     modifier,
+    id,
+    multiple = false,
   } = props;
   const [meta, field, helpers] = useField(name);
 
+  const checkValue = () => {
+    if (!checkObj(field.value)) return false;
+
+    if (field.value.constructor.name === "File") {
+      return true;
+    }
+
+    return false;
+  };
+
   return (
-    <input
-      name={name}
-      type="file"
-      className={clsx(
-        style.file__input,
-        modifier && style[`file__input--${modifier}`],
+    <div className={clsx(style.file, modifier && style[`file--${modifier}`])}>
+      <input
+        id={id}
+        name={name}
+        type="file"
+        onBlur={() => helpers.setTouched(true)}
+        onChange={(e: any) => {
+          helpers.setValue(e.target.files[0]);
+        }}
+        multiple={multiple}
+      />
+
+      {checkValue() ? (
+        <span>{field.value.name}</span>
+      ) : (
+        <span>Загрузите файл</span>
       )}
-      onBlur={() => helpers.setTouched(true)}
-      onChange={(e: any) => helpers.setValue(e.target.files[0])}
-    />
+    </div>
   );
 };
 export default File;

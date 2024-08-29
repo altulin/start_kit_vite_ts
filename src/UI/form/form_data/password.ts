@@ -8,11 +8,11 @@ import {
 import * as yup from "yup";
 
 export const fieldPassword = (args: ITextInput) => {
-  const { label_text, modifier } = args;
+  const { label_text, modifier, name = "password" } = args;
   return {
     label_text,
     type: "password",
-    name: "password",
+    name,
     autoComplete: "off",
     validation_type: "string",
     modifier,
@@ -34,11 +34,11 @@ export const fieldPassword = (args: ITextInput) => {
 };
 
 export const fieldConfirmPassword = (args: ITextInput) => {
-  const { label_text, modifier } = args;
+  const { label_text, modifier, name = "confirm_password" } = args;
   return {
     label_text,
     type: "password",
-    name: "confirm_password",
+    name,
     autoComplete: "off",
     modifier,
     validation_type: "string",

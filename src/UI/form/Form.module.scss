@@ -6,3 +6,8 @@
     @include vh();
   }
 }
+
+input[type="file"],
+input[type="checkbox"] {
+  @include vh();
+}
