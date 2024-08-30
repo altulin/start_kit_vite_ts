@@ -1,5 +1,7 @@
 export interface IModalState {
-  [key: string]: { step?: number; text?: string };
+  auth?: { step: number };
+  error?: { text: string };
+  success?: { text: string };
 }
 
 interface IInitialState {
