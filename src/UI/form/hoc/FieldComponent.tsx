@@ -6,6 +6,9 @@ import { ITextInput } from "../types";
 import RadioGroup from "../components/RadioGroup";
 
 const FieldComponent: FC<ITextInput> = ({ ...props }) => {
+  delete props.validation_type;
+  delete props.validations;
+
   const { type = "text" } = props;
 
   const getComponent = (type: string) => {
