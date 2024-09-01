@@ -1,9 +1,16 @@
 import clsx from "clsx";
 import style from "./Header.module.scss";
-import Menu from "react-burger-menu/lib/menus/slide";
 import useIsSmallDevice from "../../hooks/IsSmallDevice";
+import { slide as Menu } from "react-burger-menu";
+import { FC } from "react";
 
-const Nav = ({ children, isMenu, setMenu }) => {
+interface NavProps {
+  children: React.ReactNode;
+  isMenu: boolean;
+  setMenu: (isOpen: boolean) => void;
+}
+
+const Nav: FC<NavProps> = ({ children, isMenu, setMenu }) => {
   const isMobileOrTablet = useIsSmallDevice();
 
   return isMobileOrTablet ? (

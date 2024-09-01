@@ -1,8 +1,9 @@
 import style from "./Header.module.scss";
 import clsx from "clsx";
+import { FC } from "react";
 import { HashLink } from "react-router-hash-link";
 
-const Links = ({ setMenu }) => {
+const Links: FC<{ setMenu: (state: boolean) => void }> = ({ setMenu }) => {
   const links = [
     { label: "Призы", path: "#prizes", anchor: true },
     { label: "Как принять участие", path: "#how", anchor: true },
