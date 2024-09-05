@@ -8,6 +8,7 @@ export type TParams = (
   | RegExp
   | Reference<unknown>[]
   | boolean[]
+  | object
 )[];
 
 export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
