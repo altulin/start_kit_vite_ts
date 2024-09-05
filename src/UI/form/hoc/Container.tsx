@@ -10,9 +10,8 @@ interface IContainer extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Container: FC<IContainer> = ({ ...props }) => {
-  const { children, name = "", modifier = null } = props;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [meta, fields] = useField(name);
+  const { children, modifier = null, name } = props;
+  const [, fields] = useField(name || "");
   const { isError, error_text } = useCheckError(fields);
 
   return (

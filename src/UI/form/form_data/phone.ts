@@ -4,13 +4,14 @@ import { ITextInput } from "../types";
 import { required, valid } from "../validation/errText";
 
 export const fieldPhone = (args: ITextInput) => {
-  const { label_text, modifier, name = "phone" } = args;
+  const { label_text, modifier, name = "phone", placeholder } = args;
 
   return {
     label_text,
     type: "tel",
     name,
     onInput: onPhoneInput,
+    placeholder,
     validation_type: "string",
     modifier,
     validations: [

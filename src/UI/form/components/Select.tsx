@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import style from "../Form.module.scss";
 import Select from "react-select";
 import { FieldProps, useField } from "formik";
 import { ITextInput } from "../types";
+import useCheckError from "../hook/checkError";
 
 interface IMySelect extends FieldProps, Omit<ITextInput, "form"> {}
 
@@ -13,22 +14,34 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
   const {
     field: { name },
     options,
+    placeholder,
   } = props;
 
   const [meta, field, helpers] = useField(name);
+  const { isError } = useCheckError(field);
+
+  // начальное значение назначаем в form_data/select.ts
 
   return (
     <Select
       options={options}
-      placeholder="Все"
+      placeholder={placeholder}
       className={clsx(style.select)}
+      defaultValue={options && options[0]}
       classNames={{
-        control: () => clsx(style.select__control),
+        control: () =>
+          clsx(
+            style.select__control,
+            isError && style["select__control--error"],
+          ),
         valueContainer: () => clsx(style.select__valueContainer),
         placeholder: () => clsx(style.select__placeholder),
         indicatorsContainer: () => clsx(style.select__indicatorsContainer),
         indicatorSeparator: () => clsx(style.select__indicatorSeparator),
         menuList: () => clsx(style.select__menuList),
+        option: () => clsx(style.select__option),
+        singleValue: () => clsx(style.select__singleValue),
+        input: () => clsx(style.select__input),
       }}
       name={name}
       onBlur={() => helpers.setTouched(true)}

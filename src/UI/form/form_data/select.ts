@@ -5,11 +5,20 @@ import { ITextInput } from "../types";
 import { required } from "../validation/errText";
 
 export const fieldSelect = (args: ITextInput) => {
-  const { label_text, modifier, options, name = "select" } = args;
+  const {
+    label_text,
+    modifier,
+    options,
+    name = "select",
+    placeholder,
+    value,
+  } = args;
   return {
     label_text,
     type: "select",
     name,
+    placeholder,
+    value,
     validation_type: "string",
     modifier,
     component: MySelect,

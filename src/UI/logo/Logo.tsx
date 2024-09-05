@@ -1,9 +1,10 @@
 import style from "./Logo.module.scss";
 import clsx from "clsx";
 import { HashLink } from "react-router-hash-link";
-import ImgWithFallback from "../image/img_webp";
+// import IconLogo from "@/images/header/logo.svg?react";
+import { FC } from "react";
 
-function Logo({ parent }) {
+const Logo: FC<{ parent: string }> = ({ parent }) => {
   return (
     <HashLink
       className={clsx(style.logo, style[`logo--${parent}`])}
@@ -11,9 +12,9 @@ function Logo({ parent }) {
       aria-label="logo"
       smooth
     >
-      <ImgWithFallback />
+      {/* <IconLogo /> */}
     </HashLink>
   );
-}
+};
 
 export default Logo;

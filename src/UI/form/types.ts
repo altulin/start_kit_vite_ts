@@ -18,6 +18,7 @@ export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
   component?: string | React.ComponentType<FieldProps>;
   options?: OptionsType;
   radio_list?: TRadioItem[];
+  minRows?: number;
 }
 
 type TRadioItem = {

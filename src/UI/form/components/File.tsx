@@ -6,6 +6,7 @@ import style from "../Form.module.scss";
 import { FieldProps, useField } from "formik";
 import { ITextInput } from "../types";
 import { checkObj } from "@/service/checkObj";
+import useCheckError from "../hook/checkError";
 interface IMyTextArea extends FieldProps, Omit<ITextInput, "form"> {}
 
 const File: FC<IMyTextArea> = ({ ...props }) => {
@@ -15,7 +16,9 @@ const File: FC<IMyTextArea> = ({ ...props }) => {
     id,
     multiple = false,
   } = props;
+
   const [meta, field, helpers] = useField(name);
+  const { isError } = useCheckError(field);
 
   const checkValue = () => {
     if (!checkObj(field.value)) return false;
@@ -28,7 +31,13 @@ const File: FC<IMyTextArea> = ({ ...props }) => {
   };
 
   return (
-    <div className={clsx(style.file, modifier && style[`file--${modifier}`])}>
+    <div
+      className={clsx(
+        style.file,
+        modifier && style[`file--${modifier}`],
+        isError && style["file--error"],
+      )}
+    >
       <input
         id={id}
         name={name}
@@ -40,11 +49,7 @@ const File: FC<IMyTextArea> = ({ ...props }) => {
         multiple={multiple}
       />
 
-      {checkValue() ? (
-        <span>{field.value.name}</span>
-      ) : (
-        <span>Загрузите файл</span>
-      )}
+      {checkValue() ? <span>{field.value.name}</span> : <span>Загрузить</span>}
     </div>
   );
 };

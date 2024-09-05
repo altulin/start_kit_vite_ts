@@ -5,20 +5,31 @@ import IconRule from "@/images/svg/rule.svg?react";
 import TextInput from "./TextInput";
 import { useField } from "formik";
 import { ITextInput } from "../types";
+import useCheckError from "../hook/checkError";
 
 const Checkbox: FC<ITextInput> = ({ children, ...props }) => {
-  const [meta] = useField(props.name || "");
+  const { modifier } = props;
+  const [meta, field] = useField(props.name || "");
+  const { isError } = useCheckError(field);
 
   return (
-    <TextInput {...props}>
-      <div className={clsx(style.checkbox)}>
-        <span className={clsx(style.checkbox__icon)}>
+    <TextInput {...props} type="checkbox">
+      <div
+        className={clsx(
+          style.checkbox,
+          modifier && style[`checkbox--${modifier}`],
+        )}
+      >
+        <span
+          className={clsx(
+            style.checkbox__icon,
+            isError && style["checkbox__icon--error"],
+          )}
+        >
           {meta.value && <IconRule />}
         </span>
-        <span className={clsx(style.checkbox__text)}>
-          <span>Я даю свое согласие на </span>
-          {children}
-        </span>
+
+        {children}
       </div>
     </TextInput>
   );

@@ -2,10 +2,20 @@ import clsx from "clsx";
 import { FC } from "react";
 import style from "../Form.module.scss";
 import { ITextInput } from "../types";
-import { Field } from "formik";
+import { Field, useField } from "formik";
+import useCheckError from "../hook/checkError";
 
 const Label: FC<ITextInput> = ({ ...props }) => {
-  const { modifier, label_text, id, children, ...input_props } = props;
+  const {
+    modifier,
+    label_text,
+    name = "",
+    id,
+    children,
+    ...input_props
+  } = props;
+  const [meta, fields] = useField(name);
+  const { isError } = useCheckError(fields);
 
   return (
     <label
@@ -24,9 +34,14 @@ const Label: FC<ITextInput> = ({ ...props }) => {
       )}
 
       <Field
-        className={clsx(style.input, modifier && style[`input--${modifier}`])}
+        className={clsx(
+          style.input,
+          modifier && style[`input--${modifier}`],
+          isError && style[`input--error`],
+        )}
         id={id}
         {...input_props}
+        name={name}
       />
 
       {children}

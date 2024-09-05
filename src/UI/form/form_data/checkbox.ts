@@ -1,8 +1,8 @@
 import { ITextInput } from "../types";
-import { requiredCheck } from "../validation/errText";
+import { required, requiredCheck } from "../validation/errText";
 
 export const fieldCheckbox = (args: ITextInput) => {
-  const { label_text, name = "checkbox", modifier } = args;
+  const { label_text, name = "checkbox", modifier, children } = args;
 
   return {
     label_text,
@@ -10,7 +10,12 @@ export const fieldCheckbox = (args: ITextInput) => {
     name,
     modifier,
     validation_type: "boolean",
+    children,
     validations: [
+      {
+        type: "required",
+        params: [required],
+      },
       {
         type: "oneOf",
         params: [[true], requiredCheck],
