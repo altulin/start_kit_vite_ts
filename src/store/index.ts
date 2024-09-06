@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import modalSlice from "./modal/modalSlice";
 
-import { emptyApi } from "./rtk/emptyApi";
-import { rtkQueryErrorLogger } from "./errorLogger";
+import { emptyApi } from "./service/emptyApi";
+import { rtkQueryErrorLogger } from "./service/errorLogger";
 
 const store = configureStore({
   reducer: {

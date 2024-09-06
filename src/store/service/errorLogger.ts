@@ -1,10 +1,10 @@
-import { getErrText } from "@/api/service/getErrText";
+import { getErrText } from "@/store/service/getErrText";
 import {
   Middleware,
   MiddlewareAPI,
   isRejectedWithValue,
 } from "@reduxjs/toolkit";
-import { setErrorModal } from "./modal/modalSlice";
+import { setErrorModal } from "../modal/modalSlice";
 
 export const rtkQueryErrorLogger: Middleware =
   (api: MiddlewareAPI) => (next) => (action) => {

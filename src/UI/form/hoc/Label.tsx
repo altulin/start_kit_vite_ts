@@ -33,18 +33,20 @@ const Label: FC<ITextInput> = ({ ...props }) => {
         </span>
       )}
 
-      <Field
-        className={clsx(
-          style.input,
-          modifier && style[`input--${modifier}`],
-          isError && style[`input--error`],
-        )}
-        id={id}
-        {...input_props}
-        name={name}
-      />
+      <div className={clsx(style.input__wrapper)}>
+        <Field
+          className={clsx(
+            style.input,
+            modifier && style[`input--${modifier}`],
+            isError && style[`input--error`],
+          )}
+          id={id}
+          {...input_props}
+          name={name}
+        />
 
-      {children}
+        {children}
+      </div>
     </label>
   );
 };

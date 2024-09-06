@@ -1,13 +1,14 @@
-export const getErrText = (error: number) => {
+export const getErrText = (error: number): string => {
   let errorText = "";
   switch (error) {
     case 400:
       errorText = "Данные отправлены неверно";
       break;
 
-    case 401:
-      // localStorage.clear();
-      return;
+    // case 401:
+    //   // localStorage.clear();
+    //   errorText = "";
+    //   return;
 
     case 430:
       errorText = "Пользователь не найден";

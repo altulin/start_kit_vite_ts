@@ -1,13 +1,15 @@
-import { emptyApi } from "../emptyApi";
+import { emptyApi } from "../../service/emptyApi";
 
 export const userApi = emptyApi.injectEndpoints({
   endpoints: (build) => ({
     getUsers: build.query({
-      query: (name: string) => ({
-        url: `/${name}`,
+      query: () => ({
+        url: "/posts/",
       }),
-      //   transformResponse: (response: { name: string }[]) =>
-      //     response.map((user) => user.name),
+      transformResponse: (response: { id: number; title: string }[]) =>
+        response.map((user) => {
+          return { label: user.title.replace(/ .*/, ""), value: user.id };
+        }),
       // transformErrorResponse: (response: { status: string | number }) => {
       //   return response.status;
       // },
