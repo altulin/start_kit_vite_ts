@@ -11,7 +11,13 @@ const RadioGroup: FC<ITextInput> = ({ radio_list, children, ...props }) => {
     <Container {...props}>
       {radio_list &&
         radio_list.map((item, i) => (
-          <Label {...props} key={i} label_text={item.label} id={`${id}_${i}`}>
+          <Label
+            {...props}
+            key={i}
+            label_text={item.label}
+            id={`${id}_${i}`}
+            value={item.value}
+          >
             <span className={clsx(style.radio__mark)}></span>
             {children}
           </Label>

@@ -38,7 +38,7 @@ export const formData: ITextInput[] = [
     label_text: "город",
     options: data || [],
     modifier: "test",
-    value: data && data[0].value,
+    placeholder: "Выберите город ...",
   }),
   fieldTextArea({ label_text: "текст", modifier: "test" }),
   fieldFile({ label_text: "файл", modifier: "test" }),

@@ -24,6 +24,7 @@ const App: FC = () => {
             path="/private"
             element={<RequireAuth>{/* <Private /> */ <h1>лк</h1>}</RequireAuth>}
           />
+          <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
       <ModalManager />

@@ -1,8 +1,7 @@
 import { ButtonHTMLAttributes, LinkHTMLAttributes, ReactNode } from "react";
 import { HashLinkProps } from "react-router-hash-link";
 
-export interface _TButton {
-  variant_elem: "link" | "button" | "hash_link" | string;
+export interface IPressElement {
   class_name?: string;
   label?: string;
   icon?: ReactNode;
@@ -10,16 +9,14 @@ export interface _TButton {
   modifier?: string;
 }
 
-export let TPressComponent: Pick<_TButton, "label" | "icon" | "icon_pos">;
+export let TPressComponent: Pick<IPressElement, "label" | "icon" | "icon_pos">;
 
 export interface IPressBtn
-  extends _TButton,
+  extends IPressElement,
     ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export interface IPressLink
-  extends _TButton,
+  extends IPressElement,
     LinkHTMLAttributes<HTMLAnchorElement> {}
 
-export interface IPressHashLink extends _TButton, HashLinkProps {}
-
-export type TPressElement = IPressBtn | IPressLink | IPressHashLink;
+export interface IPressHashLink extends IPressElement, HashLinkProps {}

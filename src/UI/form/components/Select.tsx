@@ -20,14 +20,11 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
   const [meta, field, helpers] = useField(name);
   const { isError } = useCheckError(field);
 
-  // начальное значение назначаем в form_data/select.ts
-
   return (
     <Select
       options={options}
       placeholder={placeholder}
       className={clsx(style.select)}
-      defaultValue={options && options[0]}
       classNames={{
         control: () =>
           clsx(
