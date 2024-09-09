@@ -4,18 +4,14 @@ import { formData, radio_list } from "./form_data";
 import { makeInitialValues } from "../initialValues";
 import FieldComponent from "../hoc/FieldComponent";
 import { validateSchema } from "../validation/yupSchemaCreator";
-import { useGetUsersQuery } from "@/store/rtk/user/userApi";
 
 const FormTemplate: FC = () => {
-  const { data } = useGetUsersQuery(undefined);
-
   return (
     <Formik
       initialValues={{
         ...makeInitialValues(formData),
         rule: true,
         radio: radio_list[0].value,
-        // select: data ? data[0].value : "",
       }}
       validationSchema={validateSchema(formData)}
       onSubmit={(val) => {

@@ -3,9 +3,14 @@ import { ITextInput } from "./types";
 export const makeInitialValues = (fields: ITextInput[]) => {
   const object: Record<string, string> = {};
 
+  console.log(fields);
+
   fields.forEach((item) => {
-    if (item.name !== undefined && typeof item.value === "string") {
-      object[item.name] = item.value;
+    if (typeof item.value === "string" || typeof item.value === "number") {
+      if (item.name !== undefined) {
+        object[item.name] = item.value.toString();
+      }
+      // object[item.name] = item.value;
     } else if (item.name !== undefined) {
       object[item.name] = "";
     }

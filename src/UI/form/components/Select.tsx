@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import style from "../Form.module.scss";
 import Select from "react-select";
 import { FieldProps, useField } from "formik";
@@ -17,7 +16,7 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
     placeholder,
   } = props;
 
-  const [meta, field, helpers] = useField(name);
+  const [, field, helpers] = useField(name);
   const { isError } = useCheckError(field);
 
   return (
@@ -43,7 +42,10 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
       name={name}
       onBlur={() => helpers.setTouched(true)}
       onChange={(val: any) => helpers.setValue(val.value)}
-      value={options && options.find((el: any) => el.value === field.value)}
+      value={
+        options &&
+        options.find((el: any) => el.value.toString() === field.value)
+      }
     />
   );
 };
