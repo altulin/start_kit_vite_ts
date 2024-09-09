@@ -18,8 +18,8 @@ const FormTemplate: FC = () => {
         console.log(val);
       }}
     >
-      {(formik) => {
-        console.log(formik.values);
+      {() => {
+        // console.log(formik.values);
         return (
           <Form id="form">
             {formData.map((item, i) => (
