@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "formik": "^2.4.5",
+    "hiding-header-react": "^1.1.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.9",
