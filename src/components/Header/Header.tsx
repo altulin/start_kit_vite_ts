@@ -12,7 +12,9 @@ const Header = () => {
 
   const handleUnpin = () => {
     if (isScrollHeader) return;
-    setScrollHeader(true);
+    setTimeout(() => {
+      setScrollHeader(true);
+    }, 500);
   };
 
   const handleUnfix = () => {
@@ -25,7 +27,6 @@ const Header = () => {
       onUnfix={handleUnfix}
       upTolerance={0}
       downTolerance={0}
-      pinStart={0}
     >
       <header
         className={clsx(style.header, isScrollHeader && style.header_scroll)}
