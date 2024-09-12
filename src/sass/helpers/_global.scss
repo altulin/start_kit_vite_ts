@@ -37,6 +37,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 5000px;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .scroll {
@@ -61,6 +66,8 @@ img {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
 }
 
 a {

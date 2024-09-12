@@ -4,20 +4,38 @@ import clsx from "clsx";
 import Links from "./Links";
 import Nav from "./Nav";
 import Logo from "@/UI/logo/Logo";
-import { HidingHeader } from "hiding-header-react";
-import "hiding-header/dist/style.css";
+import Headroom from "react-headroom";
 
 const Header = () => {
-  const [isMenu, setMenu] = useState(true);
+  const [isMenu, setMenu] = useState(false);
+  const [isScrollHeader, setScrollHeader] = useState(false);
+
+  const handleUnpin = () => {
+    if (isScrollHeader) return;
+    setScrollHeader(true);
+  };
+
+  const handleUnfix = () => {
+    setScrollHeader(false);
+  };
 
   return (
-    <HidingHeader
-    // onHomeChange={(isHomeNew) => {
-    //   // console.log(isHomeNew);
-    // }}
+    <Headroom
+      onUnpin={handleUnpin}
+      onUnfix={handleUnfix}
+      upTolerance={0}
+      downTolerance={0}
+      pinStart={0}
     >
-      <header className={clsx(style.header)}>
-        <div className={clsx(style.header__inner)}>
+      <header
+        className={clsx(style.header, isScrollHeader && style.header_scroll)}
+      >
+        <div
+          className={clsx(
+            style.header__inner,
+            isScrollHeader && style.header_scroll__inner,
+          )}
+        >
           <Logo parent={"header"} />
 
           <Nav isMenu={isMenu} setMenu={setMenu}>
@@ -25,7 +43,7 @@ const Header = () => {
           </Nav>
         </div>
       </header>
-    </HidingHeader>
+    </Headroom>
   );
 };
 export default Header;
