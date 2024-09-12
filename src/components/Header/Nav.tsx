@@ -25,7 +25,6 @@ const Nav: FC<NavProps> = ({ children, isMenu, setMenu }) => {
     id: "page-wrap",
     outerContainerId: "root",
     className: clsx(style.menu__wrap),
-    // right: true,
     width: "100%",
     customCrossIcon: <IconCross />,
     customBurgerIcon: <IconBurger />,

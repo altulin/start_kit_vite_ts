@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
 import { FC } from "react";
-import style from "../Form.module.scss";
+import style from "../../Form.module.scss";
 import Select from "react-select";
 import { FieldProps, useField } from "formik";
-import { ITextInput } from "../types";
-import useCheckError from "../hook/checkError";
+import { ITextInput } from "../../types";
+import useCheckError from "../../hook/checkError";
+import IconArrow from "@/images/svg/rule.svg?react";
+import { class_names } from "./data";
 
 interface IMySelect extends FieldProps, Omit<ITextInput, "form"> {}
 
@@ -21,6 +23,7 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
 
   return (
     <Select
+      defaultMenuIsOpen={false}
       options={options}
       placeholder={placeholder}
       className={clsx(style.select)}
@@ -30,14 +33,7 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
             style.select__control,
             isError && style["select__control--error"],
           ),
-        valueContainer: () => clsx(style.select__valueContainer),
-        placeholder: () => clsx(style.select__placeholder),
-        indicatorsContainer: () => clsx(style.select__indicatorsContainer),
-        indicatorSeparator: () => clsx(style.select__indicatorSeparator),
-        menuList: () => clsx(style.select__menuList),
-        option: () => clsx(style.select__option),
-        singleValue: () => clsx(style.select__singleValue),
-        input: () => clsx(style.select__input),
+        ...class_names,
       }}
       name={name}
       onBlur={() => helpers.setTouched(true)}
@@ -46,6 +42,9 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
         options &&
         options.find((el: any) => el.value.toString() === field.value)
       }
+      components={{
+        DropdownIndicator: () => <IconArrow />,
+      }}
     />
   );
 };

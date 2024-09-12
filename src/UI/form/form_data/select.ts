@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 
-import MySelect from "../components/Select";
+import MySelect from "../components/select/Select";
 import { ITextInput } from "../types";
 import { required } from "../validation/errText";
 
