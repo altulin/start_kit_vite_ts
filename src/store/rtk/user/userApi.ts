@@ -1,6 +1,6 @@
-import { emptyApi } from "../../service/emptyApi";
+import { api } from "../../service/api";
 
-export const userApi = emptyApi.injectEndpoints({
+export const user = api.injectEndpoints({
   endpoints: (build) => ({
     getUsers: build.query({
       query: () => ({
@@ -18,4 +18,4 @@ export const userApi = emptyApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetUsersQuery } = userApi;
+export const { useGetUsersQuery } = user;

@@ -1,4 +1,4 @@
-import { userApi } from "@/store/rtk/user/userApi";
+import { user } from "@/store/rtk/user/userApi";
 import { fieldCheckbox } from "../form_data/checkbox";
 import { fieldEmail } from "../form_data/email";
 import { fieldFile } from "../form_data/file";
@@ -11,7 +11,8 @@ import { fieldTextArea } from "../form_data/textarea";
 import { ITextInput } from "../types";
 import store from "@/store";
 
-const promise = store.dispatch(userApi.endpoints.getUsers.initiate(undefined));
+const promise = store.dispatch(user.endpoints.getUsers.initiate(undefined));
+
 const { data } = await promise;
 // promise.unsubscribe();
 

@@ -1,18 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import modalSlice from "./modal/modalSlice";
 
-import { emptyApi } from "./service/emptyApi";
+import { api } from "./service/api";
 import { rtkQueryErrorLogger } from "./service/errorLogger";
 
 const store = configureStore({
   reducer: {
     modal: modalSlice,
-    [emptyApi.reducerPath]: emptyApi.reducer,
+    [api.reducerPath]: api.reducer,
   },
   devTools: process.env.NODE_ENV === "development",
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([emptyApi.middleware, rtkQueryErrorLogger]),
+    getDefaultMiddleware().concat([api.middleware, rtkQueryErrorLogger]),
 });
 
 export default store;
