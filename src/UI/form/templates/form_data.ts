@@ -10,17 +10,11 @@ import { fieldSelect } from "../form_data/select";
 import { fieldTextArea } from "../form_data/textarea";
 import { ITextInput } from "../types";
 import store from "@/store";
+import { fieldDatePicker } from "../form_data/datepicker";
 
 const promise = store.dispatch(user.endpoints.getUsers.initiate(undefined));
 
 const { data } = await promise;
-// promise.unsubscribe();
-
-// const options = [
-//   { label: "Тест_1", value: "test_1" },
-//   { label: "Тест_2", value: "test_2" },
-//   { label: "Тест_3", value: "test_3" },
-// ];
 
 export const radio_list = [
   { label: "Тест_1", value: "test_1" },
@@ -29,20 +23,28 @@ export const radio_list = [
 ];
 
 export const formData: ITextInput[] = [
-  fieldName({ label_text: "name" }),
-  fieldEmail({ label_text: "email" }),
-  fieldPassword({ label_text: "password" }),
-  fieldConfirmPassword({ label_text: "повторите пароль" }),
+  fieldName({ label_text: "name", name: "name" }),
+  fieldEmail({ label_text: "email", name: "email" }),
+  fieldPassword({ label_text: "password", name: "password" }),
+  fieldConfirmPassword({
+    label_text: "повторите пароль",
+    name: "confirm_password",
+  }),
   fieldCheckbox({ label_text: "правило", name: "rule" }),
-  fieldPhone({ label_text: "телефон" }),
+  fieldPhone({ label_text: "телефон", name: "phone" }),
   fieldSelect({
+    name: "city",
     label_text: "город",
     options: data || [],
     modifier: "test",
     placeholder: "Выберите город ...",
-    // value: data && data[0].value,
   }),
-  fieldTextArea({ label_text: "текст", modifier: "test" }),
-  fieldFile({ label_text: "файл", modifier: "test" }),
+  fieldTextArea({ label_text: "текст", modifier: "test", name: "textarea" }),
+  fieldFile({ label_text: "файл", modifier: "test", name: "file" }),
   fieldRadio({ name: "radio", radio_list }),
+  fieldDatePicker({
+    label_text: "Дата рождения",
+    name: "date",
+    placeholder: "Enter date",
+  }),
 ];

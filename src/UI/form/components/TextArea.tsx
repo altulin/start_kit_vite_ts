@@ -16,7 +16,7 @@ const TextArea: FC<IMyTextArea> = ({ ...props }) => {
     modifier,
     minRows,
   } = props;
-  const [meta, field, helpers] = useField(name);
+  const [, field, helpers] = useField(name);
   const { isError } = useCheckError(field);
 
   return (

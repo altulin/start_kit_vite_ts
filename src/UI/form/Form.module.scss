@@ -9,10 +9,20 @@ input[type="checkbox"] {
 
 .container {
   --error: red;
-  --placeholder: #b3c8d1;
-  --border: green;
+  --line: 0.03rem;
+
+  --color-placeholder: #b3c8d1;
   --color-label: black;
   --color-input: black;
+
+  --font-size-label: 1.38rem;
+  --font-size-input: 1.62rem;
+
+  --border-color: green;
+  --border-input: var(--line) solid var(--border-color);
+  --border-radius: 0.62rem;
+
+  --padding-input: 0.75rem 1.5rem;
 
   & + .container {
     margin-top: 1.75rem;
@@ -25,7 +35,7 @@ input[type="checkbox"] {
 
   &__text {
     font-weight: 400;
-    font-size: 1.38rem;
+    font-size: var(--font-size-label);
     color: var(--color-label);
     margin-bottom: 0.75rem;
   }
@@ -33,16 +43,16 @@ input[type="checkbox"] {
 
 .input {
   outline: 0;
-  padding: 0.75rem 1.5rem;
-  border: 0.03rem solid var(--border);
-  border-radius: 0.62rem;
+  padding: var(--padding-input);
+  border: var(--border-input);
+  border-radius: var(--border-radius);
   font-weight: 400;
-  font-size: 1.62rem;
+  font-size: var(--font-size-input);
   color: var(--color-input);
   width: 100%;
 
   &::placeholder {
-    color: var(--placeholder);
+    color: var(--color-placeholder);
   }
 
   &--error {
@@ -58,15 +68,15 @@ input[type="checkbox"] {
   .select {
     &__control {
       height: 100%;
-      border: 0.03rem solid var(--border);
-      border-radius: 0.62rem;
+      border: var(--border-input);
+      border-radius: var(--border-radius);
       outline: 0;
       background-color: #fff;
       box-shadow: none;
       overflow: hidden;
 
       &:hover {
-        border-color: var(--border);
+        //
       }
 
       &--error {
@@ -77,12 +87,12 @@ input[type="checkbox"] {
     &__singleValue {
       color: var(--color-input);
       font-weight: 400;
-      font-size: 1.62rem;
+      font-size: var(--font-size-input);
     }
 
     &__valueContainer {
       outline: 0;
-      padding: 0.75rem 1.5rem;
+      padding: var(--padding-input);
       border-radius: 0.62rem;
     }
 
@@ -96,7 +106,7 @@ input[type="checkbox"] {
       font-weight: 400;
       font-size: 1.62rem;
       line-height: 140%;
-      color: var(--placeholder);
+      color: var(--color-placeholder);
     }
 
     &__indicatorsContainer {
@@ -158,18 +168,18 @@ input[type="checkbox"] {
 }
 
 .textarea {
-  border: 0.03rem solid var(--border);
+  border: var(--border-input);
   outline: 0;
-  border-radius: 0.62rem;
+  border-radius: var(--border-radius);
   font-weight: 400;
-  font-size: 1.62rem;
+  font-size: var(--font-size-input);
   color: var(--dark);
-  padding: 0.75rem 1.5rem;
+  padding: var(--padding-input);
   resize: none;
   width: 100%;
 
   &::placeholder {
-    color: var(--placeholder);
+    color: var(--color-placeholder);
   }
 
   &--error {
@@ -205,17 +215,52 @@ input[type="checkbox"] {
 }
 
 .file {
-  border: 2px solid var(--border);
-  border-radius: 3.12rem;
-  padding: 1rem 2.25rem;
+  border: var(--border-input);
+  border-radius: var(--border-radius);
+  padding: var(--padding-input);
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: var(--font-size-input);
   text-transform: uppercase;
   color: var(--border);
   align-self: flex-start;
 
   &--error {
     border-color: var(--error);
+  }
+}
+
+.datepicker {
+  outline: 0;
+  padding: var(--padding-input) !important;
+  border: var(--border-input);
+  border-radius: var(--border-radius);
+  font-weight: 400;
+  font-size: var(--font-size-input);
+  color: var(--color-input);
+  width: 100%;
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  &__icon {
+    position: absolute;
+    @include centered("y");
+    right: 0;
+    width: 0.875rem;
+    height: 0.56rem;
+  }
+}
+
+.error {
+  &__text {
+    color: var(--error);
+    font-size: 0.75rem;
+    padding-left: 1.25rem;
   }
 }
 

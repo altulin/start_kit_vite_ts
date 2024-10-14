@@ -12,6 +12,7 @@ const FormTemplate: FC = () => {
         ...makeInitialValues(formData),
         rule: true,
         radio: radio_list[0].value,
+        date: new Date(),
       }}
       validationSchema={validateSchema(formData)}
       onSubmit={(val) => {
