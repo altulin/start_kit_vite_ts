@@ -12,8 +12,7 @@ import { ITextInput } from "../types";
 import store from "@/store";
 import { fieldDatePicker } from "../form_data/datepicker";
 
-const promise = store.dispatch(user.endpoints.getUsers.initiate(undefined));
-
+const promise = store.dispatch(user.endpoints.getUsers.initiate({}));
 const { data } = await promise;
 
 export const radio_list = [
@@ -23,7 +22,7 @@ export const radio_list = [
 ];
 
 export const formData: ITextInput[] = [
-  fieldName({ label_text: "name", name: "name" }),
+  fieldName({ label_text: "name", name: "name", placeholder: "Enter name" }),
   fieldEmail({ label_text: "email", name: "email" }),
   fieldPassword({ label_text: "password", name: "password" }),
   fieldConfirmPassword({
