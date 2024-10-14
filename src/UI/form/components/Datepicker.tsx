@@ -1,10 +1,13 @@
 import { FieldProps, useField } from "formik";
 import { FC } from "react";
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 import { ITextInput } from "../types";
 import "react-datepicker/dist/react-datepicker.css";
 import clsx from "clsx";
 import style from "../Form.module.scss";
+import { ru } from "date-fns/locale/ru";
+
+registerLocale("ru", ru);
 
 interface IMyDatePicker extends FieldProps, Omit<ITextInput, "form"> {}
 
@@ -13,7 +16,7 @@ const MyDatePicker: FC<IMyDatePicker> = ({ ...props }) => {
     field: { name },
   } = props;
 
-  const [field, meta, helpers] = useField(name);
+  const [meta, field, helpers] = useField(name);
 
   const { value } = meta;
   const { setValue } = helpers;
@@ -21,6 +24,7 @@ const MyDatePicker: FC<IMyDatePicker> = ({ ...props }) => {
   return (
     <DatePicker
       {...field}
+      locale="ru"
       selected={value}
       onChange={(date) => setValue(date)}
       placeholderText={props.placeholder}
