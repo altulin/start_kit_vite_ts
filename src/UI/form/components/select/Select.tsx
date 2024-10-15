@@ -18,6 +18,8 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
     placeholder,
   } = props;
 
+  console.log(Option);
+
   const [, field, helpers] = useField(name);
   const { isError } = useCheckError(field);
 
@@ -49,7 +51,3 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
   );
 };
 export default MySelect;
-
-{
-  /*  */
-}
