@@ -9,7 +9,12 @@ const Promo: FC = () => {
   return (
     <div className={clsx(style.promo, "container")}>
       <FormTemplate />
-      <PressBtn label="Кнопка" type="submit" form="form" />
+      <PressBtn
+        label="Кнопка"
+        type="submit"
+        form="form"
+        style={{ marginTop: "2rem" }}
+      />
     </div>
   );
 };
