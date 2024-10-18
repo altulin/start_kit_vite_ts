@@ -1,8 +1,9 @@
-import IconEye from "@/images/svg/eye.svg?react";
-import IconEyeOff from "@/images/svg/eye-off.svg?react";
+import IconEye from "@/images/sprite/eye.svg";
+import IconEyeOff from "@/images/sprite/eye-off.svg";
 import style from "../../Form.module.scss";
 import clsx from "clsx";
 import { FC } from "react";
+import Svg from "@/hoc/Svg";
 
 interface IButtonEye {
   isTypeText: boolean;
@@ -16,8 +17,12 @@ const ButtonEye: FC<IButtonEye> = ({ isTypeText, setType }) => {
       onClick={() => setType(!isTypeText)}
       className={clsx(style.button)}
     >
-      {isTypeText && <IconEye stroke="red" />}
-      {!isTypeText && <IconEyeOff stroke="red" />}
+      {isTypeText && (
+        <Svg icon={IconEye} className={clsx(style.button__icon)} />
+      )}
+      {!isTypeText && (
+        <Svg icon={IconEyeOff} className={clsx(style.button__icon)} />
+      )}
     </button>
   );
 };

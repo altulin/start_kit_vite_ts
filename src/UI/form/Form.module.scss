@@ -19,14 +19,14 @@ input[type="checkbox"] {
   --font-size-input: 1.62rem;
 
   --border-color: green;
-  --border-color-hover: tomato;
+  --border-color-hover: grey;
   --border-input: var(--line) solid var(--border-color);
   --border-radius: 0.62rem;
 
   --padding-input: 0.75rem 1.5rem;
 
   & + .container {
-    margin-top: 1.75rem;
+    margin-top: 0.75rem;
   }
 }
 
@@ -281,12 +281,23 @@ input[type="checkbox"] {
     color: var(--error);
     font-size: 0.75rem;
     padding-left: 1.25rem;
+    transition: 0.3s;
+    opacity: 0;
+
+    &--active {
+      opacity: 1;
+    }
   }
 }
 
 .button {
   position: absolute;
   @include centered("y");
-  right: 0;
+  right: 1rem;
   background-color: transparent;
+
+  &__icon {
+    stroke: var(--border-color);
+    width: 1.5rem;
+  }
 }

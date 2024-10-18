@@ -22,21 +22,19 @@ const Container: FC<IContainer> = ({ ...props }) => {
       )}
     >
       {children}
-
-      {isError && (
-        <div
-          className={clsx(style.error, modifier && style[`error--${modifier}`])}
+      <div
+        className={clsx(style.error, modifier && style[`error--${modifier}`])}
+      >
+        <span
+          className={clsx(
+            style.error__text,
+            isError && style["error__text--active"],
+            modifier && style[`error__text--${modifier}`],
+          )}
         >
-          <span
-            className={clsx(
-              style.error__text,
-              modifier && style[`error__text--${modifier}`],
-            )}
-          >
-            {error_text}
-          </span>
-        </div>
-      )}
+          {error_text ?? ""}
+        </span>
+      </div>
     </div>
   );
 };

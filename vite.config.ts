@@ -3,10 +3,20 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import autoprefixer from "autoprefixer";
 import { robots } from "vite-plugin-robots";
+import createSvgSpritePlugin from "vite-plugin-svg-sprite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr(), robots({})],
+  plugins: [
+    react(),
+    svgr(),
+    robots({}),
+    createSvgSpritePlugin({
+      symbolId: "icon-[name]-[hash]",
+      // include: ["**/icons/**.svg", "**/icons/sections/**.svg"],
+      include: ["**/sprite/**.svg"],
+    }),
+  ],
   css: {
     postcss: {
       plugins: [
