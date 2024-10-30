@@ -2,6 +2,10 @@ import { FieldProps } from "formik";
 import { InputHTMLAttributes } from "react";
 import { Reference } from "yup";
 
+export const keys = {
+  modifier: "modifier",
+} as const;
+
 export type TParams = (
   | string
   | number
@@ -13,7 +17,7 @@ export type TParams = (
 
 export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
   label_text?: string;
-  modifier?: string | null;
+  [keys.modifier]: string | null | undefined;
   validations?: { type: string; params: TParams }[];
   validation_type?: string;
   component?: string | React.ComponentType<FieldProps>;

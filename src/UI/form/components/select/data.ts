@@ -1,23 +1,48 @@
 import clsx from "clsx";
 import style from "../../Form.module.scss";
+import { ITextInput } from "../../types";
 
-export const class_names = {
-  valueContainer: () => clsx(style.select__valueContainer),
-  placeholder: () => clsx(style.select__placeholder),
-  indicatorsContainer: ({
-    selectProps: { menuIsOpen },
-  }: {
-    selectProps: { menuIsOpen: boolean };
-  }) =>
-    clsx(
-      style.select__indicatorsContainer,
-      menuIsOpen && style["select__indicatorsContainer--menu_open"],
-    ),
+export const wrapClass = "select";
+export type ITextInput_Modifier = ITextInput["modifier"];
 
-  indicatorSeparator: () => clsx(style.select__indicatorSeparator),
-  menuList: () => clsx(style.select__menuList),
-  option: ({ isFocused }: { isFocused: boolean }) =>
-    clsx(style.select__option, isFocused && style["select__option--focused"]),
-  singleValue: () => clsx(style.select__singleValue),
-  input: () => clsx(style.select__input),
+const makeStyles = (element: string, modifier: ITextInput["modifier"]) => {
+  return clsx(
+    style[`${wrapClass}__${element}`],
+    modifier && style[`${wrapClass}__${element}--${modifier}`],
+  );
+};
+
+export const getClasses = (
+  modifier: ITextInput["modifier"],
+  isError: boolean,
+) => {
+  return {
+    control: () =>
+      clsx(
+        makeStyles("control", modifier),
+        isError && style["select__control--error"],
+      ),
+    valueContainer: () => makeStyles("valueContainer", modifier),
+    placeholder: () => makeStyles("placeholder", modifier),
+    indicatorsContainer: ({
+      selectProps: { menuIsOpen },
+    }: {
+      selectProps: { menuIsOpen: boolean };
+    }) =>
+      clsx(
+        makeStyles("indicatorsContainer", modifier),
+        menuIsOpen && style["select__indicatorsContainer--menu_open"],
+      ),
+    indicatorSeparator: () => makeStyles("indicatorSeparator", modifier),
+    menu: () => makeStyles("menu", modifier),
+    menuList: () => makeStyles("menuList", modifier),
+    option: ({ isFocused }: { isFocused: boolean }) =>
+      clsx(
+        makeStyles("option", modifier),
+        isFocused && style["select__option-focused"],
+        modifier && isFocused && style[`select__option-focused--${modifier}`],
+      ),
+    singleValue: () => makeStyles("singleValue", modifier),
+    input: () => makeStyles("input", modifier),
+  };
 };

@@ -7,7 +7,7 @@ import { FieldProps, useField } from "formik";
 import { ITextInput } from "../../types";
 import useCheckError from "../../hook/checkError";
 import IconArrow from "@/images/svg/rule.svg?react";
-import { class_names } from "./data";
+import { getClasses, wrapClass } from "./data";
 
 interface IMySelect extends FieldProps, Omit<ITextInput, "form"> {}
 
@@ -16,6 +16,7 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
     field: { name },
     options,
     placeholder,
+    modifier,
   } = props;
 
   const [, field, helpers] = useField(name);
@@ -26,14 +27,9 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
       defaultMenuIsOpen={false}
       options={options}
       placeholder={placeholder}
-      className={clsx(style.select)}
+      className={clsx(style[wrapClass])}
       classNames={{
-        control: () =>
-          clsx(
-            style.select__control,
-            isError && style["select__control--error"],
-          ),
-        ...class_names,
+        ...getClasses(modifier as ITextInput["modifier"], isError),
       }}
       name={name}
       onBlur={() => helpers.setTouched(true)}

@@ -18,7 +18,7 @@ const Container: FC<IContainer> = ({ ...props }) => {
     <div
       className={clsx(
         style.container,
-        modifier && style["container--${modifier}"],
+        modifier && style[`container--${modifier}`],
       )}
     >
       {children}

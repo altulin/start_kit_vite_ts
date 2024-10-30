@@ -14,7 +14,7 @@ const Label: FC<ITextInput> = ({ ...props }) => {
     children,
     ...input_props
   } = props;
-  const [meta, fields] = useField(name);
+  const [, fields] = useField(name);
   const { isError } = useCheckError(fields);
 
   return (
