@@ -2,9 +2,16 @@ import { FieldProps } from "formik";
 import { InputHTMLAttributes } from "react";
 import { Reference } from "yup";
 
-export const keys = {
-  modifier: "modifier",
-} as const;
+export enum EnumTextInput {
+  label_text = "label_text",
+  modifier = "modifier",
+  validations = "validations",
+  validation_type = "validation_type",
+  component = "component",
+  options = "options",
+  radio_list = "radio_list",
+  minRows = "minRows",
+}
 
 export type TParams = (
   | string
@@ -15,20 +22,20 @@ export type TParams = (
   | object
 )[];
 
-export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
-  label_text?: string;
-  [keys.modifier]: string | null | undefined;
-  validations?: { type: string; params: TParams }[];
-  validation_type?: string;
-  component?: string | React.ComponentType<FieldProps>;
-  options?: OptionsType;
-  radio_list?: TRadioItem[];
-  minRows?: number;
-}
-
 type TRadioItem = {
   label: string;
   value: string;
 };
+
+export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
+  [EnumTextInput.label_text]?: string;
+  [EnumTextInput.modifier]: string | null | undefined;
+  [EnumTextInput.validations]?: { type: string; params: TParams }[];
+  [EnumTextInput.validation_type]?: string;
+  [EnumTextInput.component]?: string | React.ComponentType<FieldProps>;
+  [EnumTextInput.options]?: OptionsType;
+  [EnumTextInput.radio_list]?: TRadioItem[];
+  [EnumTextInput.minRows]?: number;
+}
 
 export type OptionsType = { [key: string]: string | number }[];

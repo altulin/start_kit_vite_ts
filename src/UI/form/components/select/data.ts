@@ -1,21 +1,18 @@
 import clsx from "clsx";
 import style from "../../Form.module.scss";
-import { ITextInput } from "../../types";
+import { EnumTextInput, ITextInput } from "../../types";
 
 export const wrapClass = "select";
-export type ITextInput_Modifier = ITextInput["modifier"];
+export type ITextInput_Modifier = ITextInput[EnumTextInput.modifier];
 
-const makeStyles = (element: string, modifier: ITextInput["modifier"]) => {
+const makeStyles = (element: string, modifier: ITextInput_Modifier) => {
   return clsx(
     style[`${wrapClass}__${element}`],
     modifier && style[`${wrapClass}__${element}--${modifier}`],
   );
 };
 
-export const getClasses = (
-  modifier: ITextInput["modifier"],
-  isError: boolean,
-) => {
+export const getClasses = (modifier: ITextInput_Modifier, isError: boolean) => {
   return {
     control: () =>
       clsx(

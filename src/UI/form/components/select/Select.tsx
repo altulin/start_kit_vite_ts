@@ -7,7 +7,7 @@ import { FieldProps, useField } from "formik";
 import { ITextInput } from "../../types";
 import useCheckError from "../../hook/checkError";
 import IconArrow from "@/images/svg/rule.svg?react";
-import { getClasses, wrapClass } from "./data";
+import { getClasses, ITextInput_Modifier, wrapClass } from "./data";
 
 interface IMySelect extends FieldProps, Omit<ITextInput, "form"> {}
 
@@ -29,7 +29,7 @@ const MySelect: FC<IMySelect> = ({ ...props }) => {
       placeholder={placeholder}
       className={clsx(style[wrapClass])}
       classNames={{
-        ...getClasses(modifier as ITextInput["modifier"], isError),
+        ...getClasses(modifier as ITextInput_Modifier, isError),
       }}
       name={name}
       onBlur={() => helpers.setTouched(true)}
