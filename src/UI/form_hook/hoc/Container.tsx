@@ -10,7 +10,7 @@ interface IContainer extends InputHTMLAttributes<HTMLInputElement> {
 
 const Container: FC<IContainer> = ({ ...props }) => {
   const { children, modifier = null } = props;
-  const { isError, error_text } = useGetFieldData(props.name);
+  const { isError, error_text } = useGetFieldData(props.name!);
 
   return (
     <div
