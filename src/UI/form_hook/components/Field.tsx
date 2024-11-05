@@ -4,13 +4,14 @@ import Container from "../hoc/Container";
 import Label from "../hoc/Label";
 import { Controller, useFormContext } from "react-hook-form";
 import Input from "./Input";
+import { checkArr } from "@/service/checkArr";
 
 const Field: FC<ITextInput> = ({ component: Component, ...props }) => {
   const id = useId();
   const methods = useFormContext();
   props.id = id;
 
-  if (Component !== undefined && Component.name === "RadioGroup") {
+  if (checkArr(props.radio_list) && Component.name === "RadioGroup") {
     return (
       <Container {...props}>
         <Component {...props} />
