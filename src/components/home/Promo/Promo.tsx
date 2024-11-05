@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react";
-import FormTemplate from "@/UI/form/templates/FormTemplate";
 import clsx from "clsx";
 import style from "./Promo.module.scss";
 import { PressBtn } from "@/UI/button/PressElement";
+import ExampleForm from "@/UI/form_hook/example/ExampleForm";
 
 const Promo: FC = () => {
   return (
     <div className={clsx(style.promo, "container")}>
-      <FormTemplate />
+      <ExampleForm />
       <PressBtn
         label="Кнопка"
         type="submit"
