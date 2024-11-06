@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { ChangeEvent, FC, useId } from "react";
-import style from "../Form.module.scss";
-import { ITextInput } from "../utils/types";
-import useGetFieldData from "../hook/fieldData";
+import style from "@/UI/form_hook/Form.module.scss";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import useGetFieldData from "@/UI/form_hook/hook/fieldData";
 
 import { checkArr } from "@/service/checkArr";
 import { useController } from "react-hook-form";

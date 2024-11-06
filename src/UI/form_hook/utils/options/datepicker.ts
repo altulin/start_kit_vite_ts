@@ -1,6 +1,6 @@
-import MyDatePicker from "../../components/Datepicker";
-import { ITextInput } from "../types";
-import { required } from "../validation/errText";
+import MyDatePicker from "@/UI/form_hook/components/Datepicker";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import { required } from "@/UI/form_hook/utils/validation/errText";
 
 export const fieldDatePicker = (args: ITextInput) => {
   return {

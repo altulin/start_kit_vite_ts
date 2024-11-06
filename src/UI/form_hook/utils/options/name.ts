@@ -1,6 +1,10 @@
-import { onNameInput } from "../masks/name";
-import { ITextInput } from "../types";
-import { nameMax, nameMin, required } from "../validation/errText";
+import { onNameInput } from "@/UI/form_hook/utils/masks/name";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import {
+  nameMax,
+  nameMin,
+  required,
+} from "@/UI/form_hook/utils/validation/errText";
 
 export const fieldName = (args: ITextInput) => {
   return {

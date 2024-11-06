@@ -1,10 +1,10 @@
 import { FC, useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { formData } from "./data";
-import { validateSchema } from "../utils/validation/yupSchemaCreator";
-import { makeInitialValues } from "../utils/initialValues";
-import Field from "../hoc/Field";
+import { formData } from "@/UI/form_hook/example/data";
+import { validateSchema } from "@/UI/form_hook/utils/validation/yupSchemaCreator";
+import { makeInitialValues } from "@/UI/form_hook/utils/initialValues";
+import Field from "@/UI/form_hook/hoc/Field";
 
 const ExampleForm: FC = () => {
   const { ...methods } = useForm({

@@ -1,6 +1,6 @@
-import Checkbox from "../../components/Checkbox";
-import { ITextInput } from "../types";
-import { requiredCheck } from "../validation/errText";
+import Checkbox from "@/UI/form_hook/components/Checkbox";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import { requiredCheck } from "@/UI/form_hook/utils/validation/errText";
 
 export const fieldCheckbox = (args: ITextInput) => {
   return {

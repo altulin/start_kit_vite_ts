@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ITextInput_radio } from "./options/radio";
-import { ITextInput } from "./types";
+import { ITextInput_radio } from "@/UI/form_hook/utils/options/radio";
+import { ITextInput } from "@/UI/form_hook/utils/types";
 
 export const makeInitialValues = (fields: ITextInput[]) => {
   const object: Record<string, string | number | boolean | [] | any> = {};

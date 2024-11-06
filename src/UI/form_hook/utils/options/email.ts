@@ -1,5 +1,5 @@
-import { ITextInput } from "../types";
-import { required, valid } from "../validation/errText";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import { required, valid } from "@/UI/form_hook/utils/validation/errText";
 
 export const fieldEmail = (args: ITextInput) => {
   return {

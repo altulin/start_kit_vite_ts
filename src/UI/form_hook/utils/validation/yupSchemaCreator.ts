@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as yup from "yup";
-import { ITextInput } from "../types";
+import { ITextInput } from "@/UI/form_hook/utils/types";
 
 export function createYupSchema(schema: any, config: any) {
   const { name, validation_type = "string", validations = [] } = config;

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC, useId } from "react";
-import { ITextInput } from "../utils/types";
-import Container from "./Container";
-import Label from "./Label";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import Container from "@/UI/form_hook/hoc/Container";
+import Label from "@/UI/form_hook/hoc/Label";
 import { Controller, useFormContext } from "react-hook-form";
-import Input from "../components/Input";
+import Input from "@/UI/form_hook/components/Input";
 import { checkArr } from "@/service/checkArr";
 
 const Field: FC<ITextInput> = ({ component: Component, ...props }) => {

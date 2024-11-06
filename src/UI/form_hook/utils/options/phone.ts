@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-escape */
-import { onPhoneInput } from "../masks/phone";
-import { ITextInput } from "../types";
-import { required, valid } from "../validation/errText";
+import { onPhoneInput } from "@/UI/form_hook/utils/masks/phone";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import { required, valid } from "@/UI/form_hook/utils/validation/errText";
 
 export const fieldPhone = (args: ITextInput) => {
   return {

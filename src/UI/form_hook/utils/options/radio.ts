@@ -1,5 +1,5 @@
-import RadioGroup from "../../components/RadioGroup";
-import { ITextInput } from "../types";
+import RadioGroup from "@/UI/form_hook/components/RadioGroup";
+import { ITextInput } from "@/UI/form_hook/utils/types";
 
 export interface ITextInput_radio extends ITextInput {
   init_value: { label: string; value: string };

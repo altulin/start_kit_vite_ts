@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { FC } from "react";
-import style from "../Form.module.scss";
-import { ITextInput } from "../utils/types";
+import style from "@/UI/form_hook/Form.module.scss";
+import { ITextInput } from "@/UI/form_hook/utils/types";
 
 const Label: FC<ITextInput> = ({ ...props }) => {
   const { modifier, label_text, id, children, className, ...input_props } =

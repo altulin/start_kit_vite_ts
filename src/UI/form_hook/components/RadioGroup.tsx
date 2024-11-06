@@ -1,9 +1,9 @@
 import { FC, useId } from "react";
 import { ITextInput } from "../utils/types";
-import Label from "../hoc/Label";
+import Label from "@/UI/form_hook/hoc/Label";
 import clsx from "clsx";
-import style from "../Form.module.scss";
-import Input from "./Input";
+import style from "@/UI/form_hook/Form.module.scss";
+import Input from "@/UI/form_hook/components/Input";
 import { useController } from "react-hook-form";
 import IconRule from "@/images/sprite/rule.svg";
 import Svg from "@/hoc/Svg";

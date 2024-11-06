@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { FC } from "react";
-import { ITextInput } from "../utils/types";
-import style from "../Form.module.scss";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import style from "@/UI/form_hook/Form.module.scss";
 import { useFormContext } from "react-hook-form";
-import useGetFieldData from "../hook/fieldData";
+import useGetFieldData from "@/UI/form_hook/hook/fieldData";
 
 const Input: FC<ITextInput> = ({ modifier, ...props }) => {
   const { register } = useFormContext();

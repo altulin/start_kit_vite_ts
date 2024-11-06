@@ -1,6 +1,6 @@
-import TextArea from "../../components/TextArea";
-import { ITextInput } from "../types";
-import { required } from "../validation/errText";
+import TextArea from "@/UI/form_hook/components/TextArea";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import { required } from "@/UI/form_hook/utils/validation/errText";
 
 export const fieldTextArea = (args: ITextInput) => {
   return {

@@ -1,11 +1,11 @@
-import PasswordField from "../../components/password/PasswordField";
-import { ITextInput } from "../types";
+import PasswordField from "@/UI/form_hook/components/password/PasswordField";
+import { ITextInput } from "@/UI/form_hook/utils/types";
 import {
   confirmPasswordMatch,
   passwordMax,
   passwordMin,
   required,
-} from "../validation/errText";
+} from "@/UI/form_hook/utils/validation/errText";
 import * as yup from "yup";
 
 export const fieldPassword = (args: ITextInput) => {

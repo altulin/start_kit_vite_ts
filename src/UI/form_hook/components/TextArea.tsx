@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
 import { ChangeEvent, FC } from "react";
-import style from "../Form.module.scss";
-import { ITextInput } from "../utils/types";
+import style from "@/UI/form_hook/Form.module.scss";
+import { ITextInput } from "@/UI/form_hook/utils/types";
 import TextareaAutosize from "react-textarea-autosize";
-import useGetFieldData from "../hook/fieldData";
+import useGetFieldData from "@/UI/form_hook/hook/fieldData";
 import { useController } from "react-hook-form";
 
 const TextArea: FC<ITextInput> = ({ ...props }) => {

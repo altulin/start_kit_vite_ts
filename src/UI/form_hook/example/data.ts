@@ -1,14 +1,17 @@
-import { fieldCheckbox } from "../utils/options/checkbox";
-import { fieldDatePicker } from "../utils/options/datepicker";
-import { fieldEmail } from "../utils/options/email";
-import { fieldFile } from "../utils/options/file";
-import { fieldName } from "../utils/options/name";
-import { fieldConfirmPassword, fieldPassword } from "../utils/options/password";
-import { fieldPhone } from "../utils/options/phone";
-import { fieldRadio } from "../utils/options/radio";
-import { fieldSelect } from "../utils/options/select";
-import { fieldTextArea } from "../utils/options/textarea";
-import { ITextInput } from "../utils/types";
+import { fieldCheckbox } from "@/UI/form_hook/utils/options/checkbox";
+import { fieldDatePicker } from "@/UI/form_hook/utils/options/datepicker";
+import { fieldEmail } from "@/UI/form_hook/utils/options/email";
+import { fieldFile } from "@/UI/form_hook/utils/options/file";
+import { fieldName } from "@/UI/form_hook/utils/options/name";
+import {
+  fieldConfirmPassword,
+  fieldPassword,
+} from "@/UI/form_hook/utils/options/password";
+import { fieldPhone } from "@/UI/form_hook/utils/options/phone";
+import { fieldRadio } from "@/UI/form_hook/utils/options/radio";
+import { fieldSelect } from "@/UI/form_hook/utils/options/select";
+import { fieldTextArea } from "@/UI/form_hook/utils/options/textarea";
+import { ITextInput } from "@/UI/form_hook/utils/types";
 
 import store from "@/store";
 import { user } from "@/store/rtk/user/userApi";

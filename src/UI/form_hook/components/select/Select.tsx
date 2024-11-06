@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
 import { FC, useId } from "react";
-import style from "../../Form.module.scss";
+import style from "@/UI/form_hook/Form.module.scss";
 import Select from "react-select";
 
-import { ITextInput } from "../../utils/types";
+import { ITextInput } from "@/UI/form_hook/utils/types";
 import IconArrow from "@/images/sprite/rule.svg";
 import { getClasses, ITextInput_Modifier, wrapClass } from "./data";
-import useGetFieldData from "../../hook/fieldData";
+import useGetFieldData from "@/UI/form_hook/hook/fieldData";
 import Svg from "@/hoc/Svg";
 import { useController } from "react-hook-form";
 

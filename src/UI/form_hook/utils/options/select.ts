@@ -1,6 +1,6 @@
-import MySelect from "../../components/select/Select";
-import { ITextInput } from "../types";
-import { required } from "../validation/errText";
+import MySelect from "@/UI/form_hook/components/select/Select";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import { required } from "@/UI/form_hook/utils/validation/errText";
 
 export const fieldSelect = (args: ITextInput) => {
   return {

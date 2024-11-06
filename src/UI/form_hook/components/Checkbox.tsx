@@ -3,10 +3,10 @@ import { FC, useEffect, useState } from "react";
 import clsx from "clsx";
 import style from "../Form.module.scss";
 import IconRule from "@/images/sprite/rule.svg";
-import { ITextInput } from "../utils/types";
-import useGetFieldData from "../hook/fieldData";
+import { ITextInput } from "@/UI/form_hook/utils/types";
+import useGetFieldData from "@/UI/form_hook/hook/fieldData";
 import Svg from "@/hoc/Svg";
-import Input from "./Input";
+import Input from "@/UI/form_hook/components/Input";
 import { useController } from "react-hook-form";
 
 const Checkbox: FC<ITextInput> = ({ children, ...props }) => {
