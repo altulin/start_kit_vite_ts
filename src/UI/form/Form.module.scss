@@ -1,10 +1,10 @@
-@import "@/sass/helpers/variables";
-@import "@/sass/helpers/mixins.scss";
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
 
 input[type="file"],
 input[type="radio"],
 input[type="checkbox"] {
-  @include vh();
+  @include m.vh();
 }
 
 .container {
@@ -269,7 +269,7 @@ input[type="checkbox"] {
 
   &__icon {
     position: absolute;
-    @include centered("y");
+    @include m.centered("y");
     right: 0;
     width: 0.875rem;
     height: 0.56rem;
@@ -292,7 +292,7 @@ input[type="checkbox"] {
 
 .button {
   position: absolute;
-  @include centered("y");
+  @include m.centered("y");
   right: 1rem;
   background-color: transparent;
 

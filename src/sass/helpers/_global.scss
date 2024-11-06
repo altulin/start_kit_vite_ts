@@ -1,3 +1,6 @@
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
+
 *,
 *::before,
 *::after {
@@ -12,28 +15,28 @@ html {
   // font-size: 16px;
   font-size: 0.83vw;
 
-  @include mw($ldt) {
+  @include m.mw(v.$ldt) {
     font-size: 1.1vw;
   }
 
-  @include mw($dt) {
+  @include m.mw(v.$dt) {
     font-size: 1.2vw;
   }
 
-  @include mw($tb) {
+  @include m.mw(v.$tb) {
     font-size: 2.66vw;
   }
 
-  @include mw($ph) {
+  @include m.mw(v.$ph) {
     font-size: 3.73vw;
   }
 }
 
 body {
   scroll-behavior: smooth;
-  @include font("ProximaNova");
-  color: $text-dark;
-  background-color: $bg;
+  @include m.font("ProximaNova");
+  color: v.$text-dark;
+  background-color: v.$bg;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -140,16 +143,16 @@ input:-webkit-autofill:active {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-right: $gap;
-  padding-left: $gap;
+  padding-right: v.$gap;
+  padding-left: v.$gap;
   // max-width: $width-dt + $gap * 2;
   width: 80%;
 
-  @include mw($ldt) {
+  @include m.mw(v.$ldt) {
     width: 95%;
   }
 
-  @include mw($dt) {
+  @include m.mw(v.$dt) {
     width: auto;
   }
 }

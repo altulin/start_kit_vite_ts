@@ -1,5 +1,5 @@
-@import "@/sass/helpers/variables";
-@import "@/sass/helpers/mixins.scss";
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
 
 .templateName {
   &__inner {

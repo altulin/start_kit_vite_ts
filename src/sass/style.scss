@@ -1,9 +1,9 @@
-@import "./helpers/_variables";
+@use "./helpers/_variables";
 // @import-normalize;
-@import "../../node_modules/normalize.css/normalize";
+@use "../../node_modules/normalize.css/normalize";
 // @import "../../node_modules/swiper/swiper.scss";
 
-@import "./helpers/_mixins";
-@import "./helpers/_font";
-@import "./helpers/_global";
-@import "./vendor/headroom";
+@use "./helpers/_mixins";
+@use "./helpers/_font";
+@use "./helpers/_global";
+@use "./vendor/headroom";

@@ -1,5 +1,5 @@
-@import "@/sass/helpers/variables";
-@import "@/sass/helpers/mixins.scss";
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
 
 .header {
   --duration: 0.3s;
@@ -16,12 +16,12 @@
     transition: var(--duration) ease-in-out;
     background-color: rgba(black, 0.1);
 
-    @include mw($ldt) {
+    @include m.mw(v.$ldt) {
       padding-left: 1rem;
       padding-right: 2rem;
     }
 
-    @include mw($tb) {
+    @include m.mw(v.$tb) {
       padding-top: 1.5rem;
       padding-bottom: 1.5rem;
       padding-right: 1rem;
@@ -78,7 +78,7 @@
   align-items: center;
   column-gap: 1.5rem;
 
-  @include mw($tb) {
+  @include m.mw(v.$tb) {
     flex-direction: column;
   }
 }
