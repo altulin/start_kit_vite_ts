@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { formData } from "./data";
 import { validateSchema } from "../utils/validation/yupSchemaCreator";
 import { makeInitialValues } from "../utils/initialValues";
-import Field from "../components/Field";
+import Field from "../hoc/Field";
 
 const ExampleForm: FC = () => {
   const { ...methods } = useForm({
@@ -21,6 +21,7 @@ const ExampleForm: FC = () => {
 
   const onSubmit = (data: Record<string, unknown>) => {
     console.log(data);
+    // но можно и здесь
     // reset();
   };
 

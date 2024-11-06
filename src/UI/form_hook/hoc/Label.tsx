@@ -4,13 +4,18 @@ import style from "../Form.module.scss";
 import { ITextInput } from "../utils/types";
 
 const Label: FC<ITextInput> = ({ ...props }) => {
-  const { modifier, label_text, id, children, ...input_props } = props;
+  const { modifier, label_text, id, children, className, ...input_props } =
+    props;
 
   if (!input_props.name) return;
 
   return (
     <label
-      className={clsx(style.label, modifier && style[`label--${modifier}`])}
+      className={clsx(
+        style.label,
+        modifier && style[`label--${modifier}`],
+        className,
+      )}
       htmlFor={id}
     >
       {label_text && (

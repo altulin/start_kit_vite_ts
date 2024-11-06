@@ -4,12 +4,8 @@ import { nameMax, nameMin, required } from "../validation/errText";
 
 export const fieldName = (args: ITextInput) => {
   return {
-    type: "text",
-
     onInput: onNameInput,
-
     validation_type: "string",
-
     validations: [
       {
         type: "required",

@@ -67,7 +67,12 @@ export const formData: ITextInput[] = [
     multiple: true,
   }),
 
-  fieldRadio({ name: "radio", radio_list, init_value: radio_list[0] }),
+  fieldRadio({
+    name: "radio",
+    radio_list,
+    init_value: radio_list[0],
+    modifier: "radio",
+  }),
 
   fieldDatePicker({
     label_text: "Дата рождения",

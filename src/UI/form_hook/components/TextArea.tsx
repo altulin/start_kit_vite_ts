@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
-import { FC } from "react";
+import { ChangeEvent, FC } from "react";
 import style from "../Form.module.scss";
 import { ITextInput } from "../utils/types";
 import TextareaAutosize from "react-textarea-autosize";
@@ -8,8 +8,8 @@ import useGetFieldData from "../hook/fieldData";
 import { useController } from "react-hook-form";
 
 const TextArea: FC<ITextInput> = ({ ...props }) => {
-  const { name, modifier, minRows } = props;
-  const { isError } = useGetFieldData(props.name);
+  const { modifier, name, placeholder, minRows, id } = props;
+  const { isError } = useGetFieldData(name);
   const { field } = useController({ name });
   const { onChange, value, onBlur } = field;
 
@@ -20,13 +20,14 @@ const TextArea: FC<ITextInput> = ({ ...props }) => {
         modifier && style[`textarea--${modifier}`],
         isError && style["textarea--error"],
       )}
+      id={id}
       name={name}
-      onBlur={onBlur}
       value={value}
-      onChange={(e) => {
+      onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
         onChange(e.target.value);
       }}
-      placeholder={props.placeholder}
+      onBlur={onBlur}
+      placeholder={placeholder}
       minRows={minRows}
     />
   );

@@ -12,7 +12,6 @@
     "component": "generate-react component"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.9.1",
     "@reduxjs/toolkit": "^2.0.1",

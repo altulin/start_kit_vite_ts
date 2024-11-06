@@ -10,7 +10,7 @@ import { useController } from "react-hook-form";
 registerLocale("ru", ru);
 
 const MyDatePicker: FC<ITextInput> = ({ ...props }) => {
-  const { name, placeholder } = props;
+  const { name, placeholder, id } = props;
 
   const {
     field: { onChange, value },
@@ -40,6 +40,7 @@ const MyDatePicker: FC<ITextInput> = ({ ...props }) => {
           <path d="M1 1L7 7L13 1" stroke="#718EBF" strokeWidth="1.5" />
         </svg>
       }
+      id={id}
     />
   );
 };

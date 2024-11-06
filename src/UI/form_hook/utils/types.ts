@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import { FC, InputHTMLAttributes } from "react";
 import { Reference } from "yup";
 
 export enum EnumTextInput {
@@ -29,7 +29,7 @@ export interface ITextInput extends InputHTMLAttributes<HTMLInputElement> {
   radio_list?: TRadioItem[];
   minRows?: number;
   init_value?: string | number | boolean | { label: string; value: string };
-  component?: any;
+  component?: FC<ITextInput>;
   name: string;
 }
 
