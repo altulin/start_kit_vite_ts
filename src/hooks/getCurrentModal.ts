@@ -1,9 +1,11 @@
-import { IModalState } from "@/store/modal/initialState";
+import { TModalState } from "@/store/modal/initialState";
 
-const useGetCurrentModal = (modalState: IModalState | null) => {
+const useGetCurrentModal = (modalState: TModalState | null) => {
   if (!modalState) return;
 
   const key = Object.keys(modalState)[0];
+
+  if (!key) return;
 
   let modal;
 
@@ -12,8 +14,14 @@ const useGetCurrentModal = (modalState: IModalState | null) => {
       modal = key;
       break;
 
+    case "success":
+      modal = key;
+      break;
+
     default:
-      modal = `${key}-${modalState[key]["step"]}`;
+      modal = `${key}-${
+        (modalState as { [key: string]: { step: number } })[key]["step"]
+      }`;
   }
 
   return modal;

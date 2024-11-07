@@ -1,14 +1,21 @@
-export interface IModalState {
-  auth?: { step: number };
-  error?: { text: string };
-  success?: { text: string };
+export enum EKeys {
+  AUTH = "auth",
+  ERROR = "error",
+  SUCCESS = "success",
+  REGISTRATION = "registration",
 }
 
+export const keysArray = Object.values(EKeys);
+
+export type TModalState = {
+  [K in (typeof keysArray)[number]]?: { step: number } | { text: string };
+};
+
 interface IInitialState {
-  modalState: IModalState | null;
+  modalState: TModalState | null;
 }
 
 export const initialState: IInitialState = {
   modalState: null,
-  // modalState: { error: { text: "Ошибка" } },
+  // modalState: { auth: { step: 1 } },
 };

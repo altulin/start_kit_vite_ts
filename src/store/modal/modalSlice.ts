@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IModalState, initialState } from "./initialState";
+import { TModalState, initialState } from "./initialState";
 
 const modalSlice = createSlice({
   name: "modal",
   initialState,
 
   reducers: {
-    stepTo(state, action: PayloadAction<IModalState>) {
+    stepTo(state, action: PayloadAction<TModalState>) {
       state.modalState = action.payload;
     },
 
@@ -17,8 +17,13 @@ const modalSlice = createSlice({
     setErrorModal(state, action: PayloadAction<string>) {
       state.modalState = { error: { text: action.payload } };
     },
+
+    setSuccessModal(state, action: PayloadAction<string>) {
+      state.modalState = { success: { text: action.payload } };
+    },
   },
 });
 
-export const { stepTo, clearAllStep, setErrorModal } = modalSlice.actions;
+export const { stepTo, clearAllStep, setErrorModal, setSuccessModal } =
+  modalSlice.actions;
 export default modalSlice.reducer;

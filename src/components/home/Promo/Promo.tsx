@@ -13,7 +13,7 @@ const Promo: FC = () => {
         label="Кнопка"
         type="submit"
         form="form"
-        style={{ marginTop: "2rem" }}
+        style={{ marginTop: "2rem", marginBottom: "2rem" }}
       />
     </div>
   );

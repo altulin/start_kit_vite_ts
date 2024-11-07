@@ -38,6 +38,7 @@ const MySelect: FC<ITextInput> = ({ ...props }) => {
       components={{
         DropdownIndicator: () => <Svg icon={IconArrow} />,
       }}
+      noOptionsMessage={() => "Данные не загрузились"}
     />
   );
 };
