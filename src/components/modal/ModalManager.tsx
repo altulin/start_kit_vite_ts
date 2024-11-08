@@ -3,21 +3,25 @@ import ModalAuth1 from "./auth/ModalAuth1";
 import ModalError from "./error/ModalError";
 import useGetCurrentModal from "@/hooks/getCurrentModal";
 import { FC } from "react";
-import { IModalState } from "@/store/modal/initialState";
+import { EKeys, TModalState } from "@/store/modal/initialState";
 
 interface IModalElements {
-  modalState: IModalState;
+  modalState: TModalState | null;
 }
 
 const ModalElements: FC<IModalElements> = ({ modalState }) => {
   const modal = useGetCurrentModal(modalState);
 
-  return (
-    <>
-      {modal === "auth-1" && <ModalAuth1 />};
-      {modal === "error" && <ModalError />}
-    </>
-  );
+  switch (modal) {
+    case `${EKeys.AUTH}-1`:
+      return <ModalAuth1 />;
+
+    case EKeys.ERROR:
+      return <ModalError />;
+
+    default:
+      return null;
+  }
 };
 
 const ModalManager = () => {
