@@ -14,7 +14,7 @@
 
 @function torem($value) {
   $remValue: calc($value / 16);
-  @return round($remValue * 100) / 100 + rem;
+  @return calc(round($remValue * 100) / 100) + rem;
 }
 
 // Media mixin
