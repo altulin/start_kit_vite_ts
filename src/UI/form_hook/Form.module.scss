@@ -24,6 +24,7 @@ input[type="checkbox"] {
   --border-radius: 0.62rem;
 
   --padding-input: 0.75rem 1rem;
+  --background-input: #fff;
 
   & + .container {
     margin-top: 0.75rem;
@@ -63,6 +64,7 @@ input[type="checkbox"] {
   color: var(--color-input);
   width: 100%;
   transition: 0.3s;
+  background-color: var(--background-input);
 
   &:hover {
     border-color: var(--border-color-hover);
@@ -240,6 +242,7 @@ input[type="checkbox"] {
   border-radius: var(--border-radius);
   padding: var(--padding-input);
   transition: 0.3s;
+  background-color: var(--background-input);
 
   &__placeholder {
     font-size: var(--font-size-input);
